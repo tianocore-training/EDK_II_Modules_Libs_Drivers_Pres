@@ -1639,12 +1639,8 @@ Note:
 ---
 @title[UEFI Driver Example - Disk I/O]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
-<span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
-```xml
-[Defines]
- . . .
-  ENTRY_POINT           = InitializeDiskIo
-```
+
+<div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
 ```C
 EFI_STATUS
@@ -1670,6 +1666,17 @@ InitializeDiskIo (
 ```
 @[3]
 @[13](Install -Supported, Start and Stop UEFI Driver binding protocol)
+</div>
+<div class="right2">
+<span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
+```xml
+[Defines]
+ . . .
+  ENTRY_POINT  = InitializeDiskIo
+```
+</div>
+
+
 
 +++
 @title[UEFI Driver Example - Disk I/O]
