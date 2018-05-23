@@ -557,25 +557,6 @@ The simple answer is ”you have to know what the library class is based on.”
 
 Note:
 
-Without including the correct library in the build process the build error: <br>
-<pre>
-Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
-[WorkSpace/some module Lib.inf] consumed by module [WorkSpace/My Module.inf]
-</pre>
-
-Library instances, not library classes, form a hierarchy very similar to the way drivers work.
-One library instance you link to may link another library class without your awareness: 
-
-For example, If you linked the debug Lib and then someone doing the platform decides that they will use the debug Lib serial port for your debug Lib class,
-That debug serial port instance links against the serial Port library class which now links its own library instance.
-
-Now the build will handle this all in the background. 
-When it looks in your INF file it is going to see debug Lib, and when you look at the debug serial port it’s going to see serial port.  
-
-As long as there is at least one of each library instance in the workspace and in DSC file, it will be built behind the scenes. You won’t even realize that there is more than one dependency under your module, and behind the scenes is doing this for everything. 
-NOTE:  Most libraries are dependent on another library the same way that .c and .h files are dependent upon some other .c and .h files.. 
-
-
 +++?image=/assets/images/slides/Slide35.JPG
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
@@ -583,24 +564,6 @@ NOTE:  Most libraries are dependent on another library the same way that .c and 
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
-
-Without including the correct library in the build process the build error: <br>
-<pre>
-Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
-[WorkSpace/some module Lib.inf] consumed by module [WorkSpace/My Module.inf]
-</pre>
-
-Library instances, not library classes, form a hierarchy very similar to the way drivers work.
-One library instance you link to may link another library class without your awareness: 
-
-For example, If you linked the debug Lib and then someone doing the platform decides that they will use the debug Lib serial port for your debug Lib class,
-That debug serial port instance links against the serial Port library class which now links its own library instance.
-
-Now the build will handle this all in the background. 
-When it looks in your INF file it is going to see debug Lib, and when you look at the debug serial port it’s going to see serial port.  
-
-As long as there is at least one of each library instance in the workspace and in DSC file, it will be built behind the scenes. You won’t even realize that there is more than one dependency under your module, and behind the scenes is doing this for everything. 
-NOTE:  Most libraries are dependent on another library the same way that .c and .h files are dependent upon some other .c and .h files.. 
 
 
 +++?image=/assets/images/slides/Slide36.JPG
@@ -611,23 +574,6 @@ NOTE:  Most libraries are dependent on another library the same way that .c and 
 
 Note:
 
-Without including the correct library in the build process the build error: <br>
-<pre>
-Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
-[WorkSpace/some module Lib.inf] consumed by module [WorkSpace/My Module.inf]
-</pre>
-
-Library instances, not library classes, form a hierarchy very similar to the way drivers work.
-One library instance you link to may link another library class without your awareness: 
-
-For example, If you linked the debug Lib and then someone doing the platform decides that they will use the debug Lib serial port for your debug Lib class,
-That debug serial port instance links against the serial Port library class which now links its own library instance.
-
-Now the build will handle this all in the background. 
-When it looks in your INF file it is going to see debug Lib, and when you look at the debug serial port it’s going to see serial port.  
-
-As long as there is at least one of each library instance in the workspace and in DSC file, it will be built behind the scenes. You won’t even realize that there is more than one dependency under your module, and behind the scenes is doing this for everything. 
-NOTE:  Most libraries are dependent on another library the same way that .c and .h files are dependent upon some other .c and .h files.. 
 
 
 +++?image=/assets/images/slides/Slide37.JPG
@@ -638,24 +584,6 @@ NOTE:  Most libraries are dependent on another library the same way that .c and 
 
 Note:
 
-Without including the correct library in the build process the build error: <br>
-<pre>
-Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
-[WorkSpace/some module Lib.inf] consumed by module [WorkSpace/My Module.inf]
-</pre>
-
-Library instances, not library classes, form a hierarchy very similar to the way drivers work.
-One library instance you link to may link another library class without your awareness: 
-
-For example, If you linked the debug Lib and then someone doing the platform decides that they will use the debug Lib serial port for your debug Lib class,
-That debug serial port instance links against the serial Port library class which now links its own library instance.
-
-Now the build will handle this all in the background. 
-When it looks in your INF file it is going to see debug Lib, and when you look at the debug serial port it’s going to see serial port.  
-
-As long as there is at least one of each library instance in the workspace and in DSC file, it will be built behind the scenes. You won’t even realize that there is more than one dependency under your module, and behind the scenes is doing this for everything. 
-NOTE:  Most libraries are dependent on another library the same way that .c and .h files are dependent upon some other .c and .h files.. 
-
 
 +++?image=/assets/images/slides/Slide38.JPG
 <!-- .slide: data-background-transition="none" -->
@@ -664,24 +592,6 @@ NOTE:  Most libraries are dependent on another library the same way that .c and 
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
-
-Without including the correct library in the build process the build error: <br>
-<pre>
-Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
-[WorkSpace/some module Lib.inf] consumed by module [WorkSpace/My Module.inf]
-</pre>
-
-Library instances, not library classes, form a hierarchy very similar to the way drivers work.
-One library instance you link to may link another library class without your awareness: 
-
-For example, If you linked the debug Lib and then someone doing the platform decides that they will use the debug Lib serial port for your debug Lib class,
-That debug serial port instance links against the serial Port library class which now links its own library instance.
-
-Now the build will handle this all in the background. 
-When it looks in your INF file it is going to see debug Lib, and when you look at the debug serial port it’s going to see serial port.  
-
-As long as there is at least one of each library instance in the workspace and in DSC file, it will be built behind the scenes. You won’t even realize that there is more than one dependency under your module, and behind the scenes is doing this for everything. 
-NOTE:  Most libraries are dependent on another library the same way that .c and .h files are dependent upon some other .c and .h files.. 
 
 
 +++?image=/assets/images/slides/Slide39.JPG
@@ -692,23 +602,6 @@ NOTE:  Most libraries are dependent on another library the same way that .c and 
 
 Note:
 
-Without including the correct library in the build process the build error: <br>
-<pre>
-Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
-[WorkSpace/some module Lib.inf] consumed by module [WorkSpace/My Module.inf]
-</pre>
-
-Library instances, not library classes, form a hierarchy very similar to the way drivers work.
-One library instance you link to may link another library class without your awareness: 
-
-For example, If you linked the debug Lib and then someone doing the platform decides that they will use the debug Lib serial port for your debug Lib class,
-That debug serial port instance links against the serial Port library class which now links its own library instance.
-
-Now the build will handle this all in the background. 
-When it looks in your INF file it is going to see debug Lib, and when you look at the debug serial port it’s going to see serial port.  
-
-As long as there is at least one of each library instance in the workspace and in DSC file, it will be built behind the scenes. You won’t even realize that there is more than one dependency under your module, and behind the scenes is doing this for everything. 
-NOTE:  Most libraries are dependent on another library the same way that .c and .h files are dependent upon some other .c and .h files.. 
 
 
 +++?image=/assets/images/slides/Slide40.JPG
@@ -718,25 +611,6 @@ NOTE:  Most libraries are dependent on another library the same way that .c and 
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
-
-Without including the correct library in the build process the build error: <br>
-<pre>
-Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
-[WorkSpace/some module Lib.inf] consumed by module [WorkSpace/My Module.inf]
-</pre>
-
-Library instances, not library classes, form a hierarchy very similar to the way drivers work.
-One library instance you link to may link another library class without your awareness: 
-
-For example, If you linked the debug Lib and then someone doing the platform decides that they will use the debug Lib serial port for your debug Lib class,
-That debug serial port instance links against the serial Port library class which now links its own library instance.
-
-Now the build will handle this all in the background. 
-When it looks in your INF file it is going to see debug Lib, and when you look at the debug serial port it’s going to see serial port.  
-
-As long as there is at least one of each library instance in the workspace and in DSC file, it will be built behind the scenes. You won’t even realize that there is more than one dependency under your module, and behind the scenes is doing this for everything. 
-NOTE:  Most libraries are dependent on another library the same way that .c and .h files are dependent upon some other .c and .h files.. 
-
 
 
 ---?image=/assets/images/slides/Slide42.JPG
@@ -1145,7 +1019,7 @@ Same as slide
 <br>
 <br>
 <br>
-<span style="font-size:0.9em" ><a href="https://github.com/tianocore/edk2/blob/master/MdeModulePkg/Application/VariableInfo/VariableInfo.inf">INF text file example </a></span>
+<span style="font-size:0.9em" >&nbsp;&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/blob/master/MdeModulePkg/Application/VariableInfo/VariableInfo.inf">INF text file example </a></span>
 
 Note:
 
@@ -1288,7 +1162,8 @@ Note:
 <!-- .slide: data-transition="none" -->
 @title[Sample Application "C" File]
 <p align="right"><span class="gold" >Sample Application "C" File</span></p>
-
+<br>
+<br>
 ```C
 #include <Uefi.h>
 #include <Library/UefiApplicationEntryPoint.h>
@@ -1314,8 +1189,9 @@ This sample application does not do anything, it is just a reference.
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Sample Application "C" File]
-<p align="right"><span class="gold" >Sample Application "C" File]</span></p>
-
+<p align="right"><span class="gold" >Sample Application "C" File</span></p>
+<br>
+<br>
 ```C
 #include <Uefi.h>
 #include <Library/UefiApplicationEntryPoint.h>
@@ -1615,7 +1491,7 @@ same as slide
 
 @[4](Always get a new GUID - http://www.guidgen.com )
 @[5](UEFI_DRIVER instead of Application)
-@[13-14](Library for Driver instead of Application)
+@[15](Library for Driver instead of Application)
 
 Note:
 
@@ -1651,7 +1527,7 @@ Note:
 <p align="right"><span class="gold" >INF File Usage Block examples</span></p>
 <br>
 
-```XML
+```shell
 [Guids]
   ## SOMETIMES_PRODUCES ## Variable:L"ConInDev"
   ## SOMETIMES_CONSUMES ## Variable:L"ConInDev"
@@ -1680,6 +1556,7 @@ Note:
   gEfiMdePkgTokenSpaceGuid.PcdDefaultTerminalType           ## SOMETIMES_CONSUMES
   gEfiMdeModulePkgTokenSpaceGuid.PcdErrorCodeSetVariable    ## CONSUMES
 ```
+
 @[1-8](The Usage Block text comes before the `gEfiGlobalVariableGuid' GUID)
 @[9-14](The Usage Block text comes after the referenced GUIDs)
 @[18-20](The Usage Block text comes before the `gEfiDevicePathProtocolGuid' protocol GUID)
