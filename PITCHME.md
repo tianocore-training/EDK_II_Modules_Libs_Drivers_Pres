@@ -1597,7 +1597,7 @@ Note:
 ```
 </pre>
 
-@[4-6](The Usage Block text comes before the `gEfiDevicePathProtocolGuid' protocol GUID)
+@[3-5](The Usage Block text comes before the `gEfiDevicePathProtocolGuid' protocol GUID)
 @[7-12](The Usage Block text comes after the referenced protocol GUIDs and PCDs)
 
 <p align="right"><span style="font-size:0.7em" >Example: <a href="https://github.com/tianocore/edk2/blob/master/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf">TerminalDxe.inf </a></span> </p>
@@ -1642,16 +1642,9 @@ Note:
 <span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
 ```xml
 [Defines]
-  INF_VERSION           = 0x00010005
-  BASE_NAME             = DiskIoDxe
-  MODULE_UNI_FILE       = DiskIoDxe.uni
-  FILE_GUID             = 6B38F -
-  MODULE_TYPE           = UEFI_DRIVER
-  VERSION_STRING        = 1.0
+ . . .
   ENTRY_POINT           = InitializeDiskIo
-
 ```
-@[8]
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
 ```C
 EFI_STATUS
@@ -1662,7 +1655,6 @@ InitializeDiskIo (
   )
 {
   EFI_STATUS              Status;
-
   Status = EfiLibInstallDriverBindingComponentName2 (
              ImageHandle,
              SystemTable,
@@ -1678,6 +1670,86 @@ InitializeDiskIo (
 ```
 @[3]
 @[13](Install -Supported, Start and Stop UEFI Driver binding protocol)
+
++++
+@title[UEFI Driver Example - Disk I/O]
+<p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
+<span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
+```xml
+[Protocols]
+  gEfiBlockIoProtocolGuid  ## TO_START
+```
+<span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
+```C
+EFI_STATUS
+EFIAPI
+DiskIoDriverBindingSupported (
+  IN EFI_DRIVER_BINDING_PROTOCOL  *This,
+  IN EFI_HANDLE                   ControllerHandle,
+  IN EFI_DEVICE_PATH_PROTOCOL     *RemainingDevicePath OPTIONAL
+  )
+{
+  EFI_STATUS            Status;
+  EFI_BLOCK_IO_PROTOCOL *BlockIo;
+   
+   Status = gBS->OpenProtocol (
+	ControllerHandle,
+      &gEfiBlockIoProtocolGuid,
+      (VOID **) &BlockIo,
+	This->DriverBindingHandle,
+	ControllerHandle,
+	EFI_OPEN_PROTOCOL_BY_DRIVER
+	);
+   if (EFI_ERROR (Status)) {
+    return Status;
+  }
+
+```
+@[3]
+@[13](Install -Supported, Start and Stop UEFI Driver binding protocol)
+
+
+
++++
+@title[UEFI Driver Example - Disk I/O]
+<p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
+<span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
+```xml
+[Protocols]
+  gEfiDiskIoProtocolGuid   ## BY_START
+  gEfiDiskIo2ProtocolGuid  ## BY_START
+
+```
+<span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
+```C
+EFI_STATUS
+EFIAPI
+ DiskIoDriverBindingStart (
+  IN EFI_DRIVER_BINDING_PROTOCOL  *This,
+  IN EFI_HANDLE                   ControllerHandle,
+  IN EFI_DEVICE_PATH_PROTOCOL     *RemainingDevicePath OPTIONAL
+  )
+{
+  EFI_STATUS            Status;
+  DISK_IO_PRIVATE_DATA  *Instance;  
+// • • •
+  if (Instance->BlockIo2 != NULL) {
+    Status = gBS->InstallMultipleProtocolInterfaces (
+	&ControllerHandle,
+	&gEfiDiskIoProtocolGuid,  &Instance->DiskIo,
+	&gEfiDiskIo2ProtocolGuid, &Instance->DiskIo2,
+	NULL	
+	);
+  	} else {
+    	Status = gBS->InstallMultipleProtocolInterfaces (
+	   &ControllerHandle,
+	   &gEfiDiskIoProtocolGuid,  &Instance->DiskIo,
+	   );
+
+```
+@[3]
+@[13](Install -Supported, Start and Stop UEFI Driver binding protocol)
+
 
 
 ---?image=/assets/images/slides/Slide117.JPG
