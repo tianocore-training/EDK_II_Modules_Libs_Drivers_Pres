@@ -1642,6 +1642,7 @@ Note:
 
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
+<pre>
 ```C
 EFI_STATUS
 EFIAPI
@@ -1664,16 +1665,19 @@ InitializeDiskIo (
   return Status;
 }
 ```
+</pre>
 @[3]
 @[13](Install -Supported, Start and Stop UEFI Driver binding protocol)
 </div>
 <div class="right2">
 <span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
+<pre>
 ```xml
 [Defines]
  . . .
   ENTRY_POINT  = InitializeDiskIo
 ```
+</pre>
 </div>
 
 
