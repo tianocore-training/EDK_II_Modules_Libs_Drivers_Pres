@@ -554,7 +554,9 @@ The simple answer is ”you have to know what the library class is based on.”
 @title[Library Instance Hierarchy]
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
+
 Note:
+
 Without including the correct library in the build process the build error: <br>
 <pre>
 Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
@@ -581,6 +583,7 @@ NOTE:  Most libraries are dependent on another library the same way that .c and 
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
+
 Without including the correct library in the build process the build error: <br>
 <pre>
 Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
@@ -607,6 +610,7 @@ NOTE:  Most libraries are dependent on another library the same way that .c and 
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
+
 Without including the correct library in the build process the build error: <br>
 <pre>
 Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
@@ -633,6 +637,7 @@ NOTE:  Most libraries are dependent on another library the same way that .c and 
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
+
 Without including the correct library in the build process the build error: <br>
 <pre>
 Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
@@ -659,6 +664,7 @@ NOTE:  Most libraries are dependent on another library the same way that .c and 
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
+
 Without including the correct library in the build process the build error: <br>
 <pre>
 Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
@@ -685,6 +691,7 @@ NOTE:  Most libraries are dependent on another library the same way that .c and 
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
+
 Without including the correct library in the build process the build error: <br>
 <pre>
 Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
@@ -711,6 +718,7 @@ NOTE:  Most libraries are dependent on another library the same way that .c and 
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
+
 Without including the correct library in the build process the build error: <br>
 <pre>
 Build …: error 4000 : Instance of Library class [Foo…Lib] is not found in 
@@ -783,11 +791,12 @@ Eye chart of many - MANY Many Libraries in the EDK II code
 ---?image=/assets/images/slides/Slide48.JPG
 @title[MdePkg Library Doc. Location ]
 <p align="right"><span class="gold" >MdePkg Library Doc. Location </span></p>
-<span style="font-size:0.8em" ><a href="https://github.com/tianocore/tianocore.github.io/wiki/UDK2018#documentation">tianocore.org wiki UDK2018 Documentation </a>  on </span>
+<span style="font-size:0.8em" ><a href="https://github.com/tianocore/tianocore.github.io/wiki/UDK2018#documentation">tianocore.org UDK2018 Documentation </a>  on </span>
+<br>
 <br>
 <div class="left1">
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/tianocore.github.io/wiki/UDK">Latest UDK Release </a>  </span><br>
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="">https://github.com/tianocore/tianocore.github.io/wiki/UDK2018</a>UDK2018</span><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/tianocore.github.io/wiki/UDK">Latest UDK Release </a>  </span><br><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/tianocore.github.io/wiki/UDK2018">UDK2018</a></span><br>
 </div>
 <div class="right1">
    <p align="center"><span style="font-size:01.2em" ><font color="yellow"></font></span></p>
@@ -1135,7 +1144,8 @@ Same as slide
 <span style="font-size:01.1em" ><font color="yellow">Syntax</font></span>
 <br>
 <br>
-<span style="font-size:0.7em" ><a href="https://github.com/tianocore/edk2/blob/master/MdeModulePkg/Application/VariableInfo/VariableInfo.inf">INF text file example </a></span>
+<br>
+<span style="font-size:0.9em" ><a href="https://github.com/tianocore/edk2/blob/master/MdeModulePkg/Application/VariableInfo/VariableInfo.inf">INF text file example </a></span>
 
 Note:
 
@@ -1149,6 +1159,8 @@ See EDK II INF  File Specification for more details and examples
 ---?image=/assets/images/slides/Slide85.JPG
 @title[Application INF Files -DEFINES]
 <p align="right"><span class="gold" >Application INF Files [DEFINES]</span></p>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -1239,16 +1251,17 @@ Note:
 
 @[1-7](Defines for this .INF file; BASE_NAME results in this name.efi file)
 @[9-10]( Source: .c, .h, .uni, .vfr, any files needed for the compiler/linker/lib etc)
-@[12-15](Package dependencies and Libraries this module will include in its final bin image)
+@[12-16](Package dependencies and Libraries this module will include in its final bin image)
 
 Note:
 
 ---?image=/assets/images/slides/Slide88.JPG
 @title[Building an Application]
-<p align="right"><span class="gold" >Building an Application</span></p>
+#### <p align="right"><span class="gold" >Building an Application</span></p>
 <br>
-<span style="font-size:0.9em" ><font color="cyan"> Platform .DSC references .INF </font></span>
-<div class="left1">
+<br>
+<span style="font-size:01.1em" ><font color="cyan"> Platform .DSC references .INF </font></span>
+<div class="left2">
 <ul style="list-style-type:none">
   <li><span style="font-size:0.9em" ><font color="yellow">Runs:</font></span><br></li>
   <li><span style="font-size:0.8em" >&nbsp;&nbsp;&nbsp;“Build” for the entire platform     </span>
@@ -1256,7 +1269,7 @@ Note:
   <li><span style="font-size:0.8em" >&nbsp;&nbsp;&nbsp;“Build” in the application’s directory    </span></li>
 </ul>
 </div>
-<div class="right1">
+<div class="right2">
    <p align="center"><span style="font-size:01.2em" ><font color="yellow"></font></span></p>
 </div>
 
@@ -1274,7 +1287,7 @@ Note:
 ---
 <!-- .slide: data-transition="none" -->
 @title[Sample Application "C" File]
-<p align="right"><span class="gold" >Sample Application "C" File]</span></p>
+<p align="right"><span class="gold" >Sample Application "C" File</span></p>
 
 ```C
 #include <Uefi.h>
@@ -1334,15 +1347,15 @@ This sample application does not do anything, it is just a reference.
 <p align="right"><span class="gold" >UEFI Application Vs. EADK Application</span></p>
 <br>
 <br>
-<div class="left2">
+<div class="left1">
 <ul style="list-style-type:none">
-  <li><span style="font-size:0.8em" ><font color="cyan">EDK II Application Development Kit includes the Standard C Libraries in UEFI Shell Applications
-</font></span><br></li>
-  <li><span style="font-size:0.8em" ><font color="cyan"><i>Off the shelf</i> “C” application Converted to UEFI application 
+  <li><span style="font-size:0.8em" ><font color="yellow">EDK II Application Development Kit includes the Standard C Libraries in UEFI Shell Applications
+</font></span><br></li><br>
+  <li><span style="font-size:0.8em" ><font color="yellow"><i>Off the shelf</i> “C” application Converted to UEFI application 
 </font></span></li>
 </ul>
 </div>
-<div class="right2">
+<div class="right1">
    <p align="center"><span style="font-size:01.2em" ><font color="yellow"></font></span></p>
 </div>
 
@@ -1355,7 +1368,7 @@ Note:
 ---
 <!-- .slide: data-transition="none" -->
 @title[Sample INF file using EDK II EADK ]
-<p align="right"><span class="gold" >Sample INF file using EDK II EADK]</span></p>
+<p align="right"><span class="gold" >Sample INF file using EDK II EADK</span></p>
 
 ```XML
 [Defines]
@@ -1403,7 +1416,7 @@ Note:
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Sample INF file using EDK II EADK ]
-<p align="right"><span class="gold" >Sample INF file using EDK II EADK]</span></p>
+<p align="right"><span class="gold" >Sample INF file using EDK II EADK</span></p>
 
 ```XML
 [Defines]
@@ -1451,7 +1464,10 @@ Note:
 
 ---
 @title[Sample "C" file using EDK II EADK ]
-<p align="right"><span class="gold" >Sample "C" file using EDK II EADK]</span></p>
+<p align="right"><span class="gold" >Sample "C" file using EDK II EADK</span></p>
+<br>
+<span style="font-size:0.9em" >This sample looks a lot like actual “C” source.</span>
+
 
 ```C 
 #include <stdio.h>
@@ -1598,8 +1614,8 @@ same as slide
 ```
 
 @[4](Always get a new GUID - http://www.guidgen.com )
-@[8]( UEFI_DRIVER instead of Application)
-@[18-19](Library for Driver instead of Application)
+@[5](UEFI_DRIVER instead of Application)
+@[13-14](Library for Driver instead of Application)
 
 Note:
 
@@ -1630,22 +1646,46 @@ Note:
   - Typically, this entry will be used when tools creating/installing UEFI Distribution Packages encounter a missing or misspelled usage. UNDEFINED is also valid when the Protocol is not used as a Protocol and the GUID value of the Protocol is used for something else.
 
 
+---
+@title[INF File Usage Block examples]
+<p align="right"><span class="gold" >INF File Usage Block examples</span></p>
+<br>
 
----?code=sample/edk2/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf&lang=shell&title=<span style="font-size:0.8em" >INF File Usage Block examples </span>
+```XML
+[Guids]
+  ## SOMETIMES_PRODUCES ## Variable:L"ConInDev"
+  ## SOMETIMES_CONSUMES ## Variable:L"ConInDev"
+  ## SOMETIMES_PRODUCES ## Variable:L"ConOutDev"
+  ## SOMETIMES_CONSUMES ## Variable:L"ConOutDev"
+  ## SOMETIMES_PRODUCES ## Variable:L"ErrOutDev"
+  ## SOMETIMES_CONSUMES ## Variable:L"ErrOutDev"
+  gEfiGlobalVariableGuid
+  gEfiVTUTF8Guid                                ## SOMETIMES_CONSUMES ## GUID # used with a Vendor-Defined Messaging Device Path
+  gEfiVT100Guid                                 ## SOMETIMES_CONSUMES ## GUID # used with a Vendor-Defined Messaging Device Path
+  gEfiVT100PlusGuid                             ## SOMETIMES_CONSUMES ## GUID # used with a Vendor-Defined Messaging Device Path
+  gEfiPcAnsiGuid                                ## SOMETIMES_CONSUMES ## GUID # used with a Vendor-Defined Messaging Device Path
+  gEfiTtyTermGuid                               ## SOMETIMES_CONSUMES ## GUID # used with a Vendor-Defined Messaging Device Path
+  gEdkiiStatusCodeDataTypeVariableGuid          ## SOMETIMES_CONSUMES ## GUID
+
+[Protocols]
+  gEfiSerialIoProtocolGuid                      ## TO_START
+  ## BY_START
+  ## TO_START
+  gEfiDevicePathProtocolGuid
+  gEfiSimpleTextInProtocolGuid                  ## BY_START
+  gEfiSimpleTextInputExProtocolGuid             ## BY_START
+  gEfiSimpleTextOutProtocolGuid                 ## BY_START
+
+[Pcd]
+  gEfiMdePkgTokenSpaceGuid.PcdDefaultTerminalType           ## SOMETIMES_CONSUMES
+  gEfiMdeModulePkgTokenSpaceGuid.PcdErrorCodeSetVariable    ## CONSUMES
+```
+@[1-8](The Usage Block text comes before the `gEfiGlobalVariableGuid' GUID)
+@[9-14](The Usage Block text comes after the referenced GUIDs)
+@[18-20](The Usage Block text comes before the `gEfiDevicePathProtocolGuid' protocol GUID)
+@[21-27](The Usage Block text comes after the referenced protocol GUIDs and PCDs)
+
 <p align="right"><span style="font-size:0.7em" >Example: <a href="https://github.com/tianocore/edk2/blob/master/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf">TerminalDxe.inf </a></span> </p>
-
-Note:
-
-
-+++?code=sample/edk2/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf&lang=shell&title=<span style="font-size:0.8em" >INF File Usage Block examples </span>
-<p align="right"><span style="font-size:0.7em" >Example: <a href="https://github.com/tianocore/edk2/blob/master/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf">TerminalDxe.inf </a></span> </p>
-
-@[63,64-71](The Usage Block text comes before the `gEfiGlobalVariableGuid' GUID)
-@[72-77](The Usage Block text comes after the declared GUIDs)
-@[79-83](The Usage Block text comes before the `gEfiDevicePathProtocolGuid' protocol GUID)
-@[84-90](The Usage Block text comes after the referenced protocol GUIDs and PCDs)
-
-
 
 Note:
 
@@ -1666,11 +1706,13 @@ Note:
 - UNDEFINED
   - Typically, this entry will be used when tools creating/installing UEFI Distribution Packages encounter a missing or misspelled usage. UNDEFINED is also valid when the Protocol is not used as a Protocol and the GUID value of the Protocol is used for something else.
 
+  
+
 ---?image=/assets/images/slides/Slide112.JPG
 @title[UEFI Driver Example - Disk I/O]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
 <br>
-@fa[certificate gp-bullet-gold]<span style="font-size:0.8em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe  </a></span><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
 
 Note:
 - PCI Platform DXE
@@ -1725,7 +1767,7 @@ InitializeDiskIo (
 @title[DXE Driver Example - PlatformInfoDxe]
 <p align="right"><span class="gold" >DXE Driver Example - PlatformInfoDxe</span></p>
 <br>
-@fa[certificate gp-bullet-gold]<span style="font-size:0.8em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2-platforms/tree/devel-MinnowBoardMax-UDK2017/Vlv2TbltDevicePkg/PlatformInfoDxe">https://github.com/tianocore/edk2-platforms/tree/devel-MinnowBoardMax-UDK2017/Vlv2TbltDevicePkg/PlatformInfoDxe</a></span><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2-platforms/tree/devel-MinnowBoardMax-UDK2017/Vlv2TbltDevicePkg/PlatformInfoDxe">https://github.com/tianocore/edk2-platforms/ PlatformInfoDxe</a></span><br>
 
 Note:
 - PCI Platform DXE
@@ -1737,7 +1779,7 @@ Note:
 @title[PEI Driver (PEIM) Example - CpuIoPei]
 <p align="right"><span class="gold" >PEI Driver (PEIM) Example - CpuIoPei</span></p>
 <br>
-@fa[certificate gp-bullet-gold]<span style="font-size:0.8em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/UefiCpuPkg/CpuIoPei">https://github.com/tianocore/edk2/tree/master/UefiCpuPkg/CpuIoPei  </a> </span>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/UefiCpuPkg/CpuIoPei">https://github.com/tianocore/edk2/ UefiCpuPkg/CpuIoPei  </a> </span>
 
 Note:
 - PCI Platform DXE
