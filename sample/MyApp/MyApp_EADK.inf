@@ -1,0 +1,25 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MyApplication
+  FILE_GUID                      = 215cdcfb-1cfc-47e0-9c09-47048c21d20d
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = ShellCEntryLib
+
+[Sources]
+  MyFile.c
+
+[Packages]
+  StdLib/StdLib.dec
+  ShellPkg/ShellPkg.dec
+  MdePkg/MdePkg.dec
+  
+[LibraryClasses]
+  LibC
+  LibStdio
+    
+[Guids]
+
+[Ppis]
+
+[Protocols]
