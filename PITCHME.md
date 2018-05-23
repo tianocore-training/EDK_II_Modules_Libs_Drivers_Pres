@@ -1545,25 +1545,11 @@ Note:
   gEfiTtyTermGuid                               ## SOMETIMES_CONSUMES ## GUID # used with a Vendor-Defined Messaging Device Path
   gEdkiiStatusCodeDataTypeVariableGuid          ## SOMETIMES_CONSUMES ## GUID
 
-[Protocols]
-  gEfiSerialIoProtocolGuid                      ## TO_START
-  ## BY_START
-  ## TO_START
-  gEfiDevicePathProtocolGuid
-  gEfiSimpleTextInProtocolGuid                  ## BY_START
-  gEfiSimpleTextInputExProtocolGuid             ## BY_START
-  gEfiSimpleTextOutProtocolGuid                 ## BY_START
-
-[Pcd]
-  gEfiMdePkgTokenSpaceGuid.PcdDefaultTerminalType           ## SOMETIMES_CONSUMES
-  gEfiMdeModulePkgTokenSpaceGuid.PcdErrorCodeSetVariable    ## CONSUMES
 ```
 </pre>
 
 @[1-8](The Usage Block text comes before the `gEfiGlobalVariableGuid' GUID)
 @[9-14](The Usage Block text comes after the referenced GUIDs)
-@[18-20](The Usage Block text comes before the `gEfiDevicePathProtocolGuid' protocol GUID)
-@[21-27](The Usage Block text comes after the referenced protocol GUIDs and PCDs)
 
 <p align="right"><span style="font-size:0.7em" >Example: <a href="https://github.com/tianocore/edk2/blob/master/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf">TerminalDxe.inf </a></span> </p>
 
@@ -1586,6 +1572,57 @@ Note:
 - UNDEFINED
   - Typically, this entry will be used when tools creating/installing UEFI Distribution Packages encounter a missing or misspelled usage. UNDEFINED is also valid when the Protocol is not used as a Protocol and the GUID value of the Protocol is used for something else.
 
+  
+
++++
+@title[INF File Usage Block examples]
+<p align="right"><span class="gold" >INF File Usage Block examples</span></p>
+<br>
+
+<pre>
+```
+
+[Protocols]
+  gEfiSerialIoProtocolGuid                      ## TO_START
+  ## BY_START
+  ## TO_START
+  gEfiDevicePathProtocolGuid
+  gEfiSimpleTextInProtocolGuid                  ## BY_START
+  gEfiSimpleTextInputExProtocolGuid             ## BY_START
+  gEfiSimpleTextOutProtocolGuid                 ## BY_START
+
+[Pcd]
+  gEfiMdePkgTokenSpaceGuid.PcdDefaultTerminalType           ## SOMETIMES_CONSUMES
+  gEfiMdeModulePkgTokenSpaceGuid.PcdErrorCodeSetVariable    ## CONSUMES
+```
+</pre>
+
+@[4-6](The Usage Block text comes before the `gEfiDevicePathProtocolGuid' protocol GUID)
+@[7-12](The Usage Block text comes after the referenced protocol GUIDs and PCDs)
+
+<p align="right"><span style="font-size:0.7em" >Example: <a href="https://github.com/tianocore/edk2/blob/master/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf">TerminalDxe.inf </a></span> </p>
+
+Note:
+
+- CONSUMES
+  - This module does not install the protocol, but needs to locate a protocol. Not valid if the Notify attribute is true.
+- PRODUCES
+  - This module will install this protocol. Not valid if the Notify attribute is true.
+- SOMETIMES_CONSUMES
+  - This module does not install the protocol, but may need to locate a protocol under certain conditions, (such as if it is present.) If the Notify attribute is set, then the module will use the protocol, named by GUID, via a registry protocol notify mechanism.
+- SOMETIMES_PRODUCES
+  - This module will install this protocol under certain conditions. Not valid if the Notify attribute is true.
+- TO_START
+  - The protocol is consumed by a Driver Binding protocol Start function. Thus the protocol is used as part of the UEFI driver model. Not valid if the Notify attribute is true.
+- BY_START
+  - The protocol is produced by a Driver Binding protocol Start function. Thus the protocol is used as part of the UEFI driver model. Not valid if the Notify attribute is true.
+- NOTIFY
+  - This specifies whether this is a Protocol or ProtocolNotify. If set, then the module will use this protocol, named by GUID, via a registry protocol notify mechanism.
+- UNDEFINED
+  - Typically, this entry will be used when tools creating/installing UEFI Distribution Packages encounter a missing or misspelled usage. UNDEFINED is also valid when the Protocol is not used as a Protocol and the GUID value of the Protocol is used for something else.
+
+  
+  
   
 
 ---?image=/assets/images/slides/Slide112.JPG
