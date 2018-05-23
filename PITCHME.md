@@ -1491,7 +1491,7 @@ same as slide
 
 @[4](Always get a new GUID - http://www.guidgen.com )
 @[5](UEFI_DRIVER instead of Application)
-@[15](Library for Driver instead of Application)
+@[15-16](Library for Driver instead of Application)
 
 Note:
 
@@ -1527,7 +1527,8 @@ Note:
 <p align="right"><span class="gold" >INF File Usage Block examples</span></p>
 <br>
 
-```shell
+```
+
 [Guids]
   ## SOMETIMES_PRODUCES ## Variable:L"ConInDev"
   ## SOMETIMES_CONSUMES ## Variable:L"ConInDev"
