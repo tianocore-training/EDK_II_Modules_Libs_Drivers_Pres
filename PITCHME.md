@@ -1527,6 +1527,7 @@ Note:
 <p align="right"><span class="gold" >INF File Usage Block examples</span></p>
 <br>
 
+<pre>
 ```
 
 [Guids]
@@ -1557,6 +1558,7 @@ Note:
   gEfiMdePkgTokenSpaceGuid.PcdDefaultTerminalType           ## SOMETIMES_CONSUMES
   gEfiMdeModulePkgTokenSpaceGuid.PcdErrorCodeSetVariable    ## CONSUMES
 ```
+</pre>
 
 @[1-8](The Usage Block text comes before the `gEfiGlobalVariableGuid' GUID)
 @[9-14](The Usage Block text comes after the referenced GUIDs)
