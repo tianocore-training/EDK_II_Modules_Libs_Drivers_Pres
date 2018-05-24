@@ -1,5 +1,5 @@
 ---?image=assets/images/gitpitch-audience.jpg
-@title[Platform Build Lab]
+@title[EDK II Modules]
 <br><br><br><br><br>
 ## <span class="gold"   >UEFI & EDK II Training</span>
 
