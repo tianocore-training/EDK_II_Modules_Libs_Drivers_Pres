@@ -1669,8 +1669,7 @@ Note:
 ---
 @title[UEFI Driver Example - Disk I/O]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a>
-- entry point</span><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a>- entry point</span><br>
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
 <pre>
@@ -1717,8 +1716,7 @@ Note:
 ---
 @title[UEFI Driver Example - Disk I/O 02]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a>
-- Supported </span><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a>- Supported </span><br>
 
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
@@ -1764,8 +1762,7 @@ Using the global gEfiBlockIoProtocolGuid protocol to determine if this device co
 ---
 @title[UEFI Driver Example - Disk I/O 03]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a>
-- Start</span><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a>- Start</span><br>
 
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
@@ -1827,7 +1824,7 @@ Note:
 @title[DXE Example .INF File - PlatformInfoDxe]
 <p align="right"><span class="gold" >DXE Driver Example - PlatformInfoDxe</span></p>
 @fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2-platforms/tree/devel-MinnowBoardMax-UDK2017/Vlv2TbltDevicePkg/PlatformInfoDxe">https://github.com/tianocore/edk2-platforms/ PlatformInfoDxe</a></span><br>
-<span style="font-size:0.6em background-color:#1f1c18; padding: 1px 15px; border-radius: 15px"  >Notice the MODULE TYPE, C function Entry point and the [Depex] differences in the INF file </span>
+<span style="font-size:0.6em"  >Notice the MODULE TYPE, C function Entry point and the [Depex] differences in the INF file </span>
 <div class="left1">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
 <pre>
