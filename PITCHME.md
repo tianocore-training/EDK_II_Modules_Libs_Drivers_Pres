@@ -1711,7 +1711,7 @@ DiskIoDriverBindingSupported (
 ```
 </pre>
 @[3](Entry point for Supported)
-@[11]( Using the global gEfiBlockIoProtocolGuid protocol)
+@[11]( Using the global gEfiBlockIoProtocolGuid protocol to determine if this device controller handle is a Block I/O device)
 </div>
 <div class="right2">
 <span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
@@ -1726,7 +1726,7 @@ DiskIoDriverBindingSupported (
 
 Note:
 
-
+Using the global gEfiBlockIoProtocolGuid protocol to determine if this device controller handle is a Block I/O device
 
 ---
 @title[UEFI Driver Example - Disk I/O 03]
@@ -1812,7 +1812,7 @@ PlatformInfoInit (
 }
 ```
 </pre>
-@[3](Entry point for this Dxe Driver)
+
 </div>
 <div class="right">
 <span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
@@ -1831,6 +1831,8 @@ PlatformInfoInit (
 ```
 </pre>
 </div>
+<span style="font-size:0.7em" >Notice the MODULE TYPE, C function Entry point and the [Depex] differences in the INF file </span>
+
 
 Note:
 
@@ -1873,8 +1875,8 @@ CpuIoInitialize (
 }
 ```
 </pre>
-@[3](Entry point for this Dxe Driver)
-@[5-6]("FileHandle" - Instead of the ImageHandle & NO EFI_SYSTEM_TABLE - Not yet defined)
+@[5](Entry point for this Dxe Driver)
+@[6-7]("FileHandle" - Instead of the ImageHandle & NO EFI_SYSTEM_TABLE - Not yet defined)
 
 </div>
 <div class="right">
