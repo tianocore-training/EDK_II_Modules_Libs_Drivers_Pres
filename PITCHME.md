@@ -85,6 +85,8 @@ So the first thing we have in trying to break EDK II down is Modules:
 <!-- .slide: data-transition="none" -->
 @title[Modules 02]
 ### <p align="right"><span class="gold" >Modules</span></p>
+<br>
+Smallest separate object compiled in EDK II
 
 Note:
 
@@ -134,7 +136,7 @@ Note:
 ---?image=/assets/images/slides/Slide9.JPG
 <!-- .slide: data-transition="none" -->
 @title[Module Source - minimum files]
-<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.7em" >- minimum files</span></p>
+<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.8em" >- minimum files</span></p>
 
 Note:
 
@@ -142,7 +144,7 @@ Note:
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Module Source - minimum files 02 ]
-<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.7em" >- minimum files</span></p>
+<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.8em" >- minimum files</span></p>
 
 Note:
 
@@ -150,7 +152,7 @@ Note:
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Module Source - minimum files 03 ]
-<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.7em" >- minimum files</span></p>
+<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.8em" >- minimum files</span></p>
 
 Note:
 
@@ -158,7 +160,7 @@ Note:
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Module Source - minimum files 04 ]
-<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.7em" >- minimum files</span></p>
+<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.8em" >- minimum files</span></p>
 
 Note:
 
@@ -166,7 +168,7 @@ Note:
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Module Source - minimum files 05 ]
-<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.7em" >- minimum files</span></p>
+<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.8em" >- minimum files</span></p>
 
 Note:
 
@@ -611,6 +613,29 @@ Note:
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
+- when the error Build : error 4000 : Instance of Library class [Foo…Lib] is not found in [WorkSpace/some module Lib.inf] consumed by module [WorkSpace/My Module.inf]
+
+
+- Library Instances (NOT Library Classes) form a hierarchy similar to UEFI drivers
+Some Library Instances will link your module to another Library DebugLib (Class)
+- DebugLibSerialPort (Instance)
+- SerialPort (Class)
+- Etc…
+
+The build process handles this, as long as a Library Instance is listed somewhere in the module hierarchy in the .DSC file
+
+
+Library instances, not library classes, form a hierarchy very similar to the way drivers work.
+One library instance you link to may link another library class without your awareness: 
+
+For example, If you linked the debug Lib and then someone doing the platform decides that they will use the debug Lib serial port for your debug Lib class,
+That debug serial port instance links against the serial Port library class which now links its own library instance.
+
+Now the build will handle this all in the background. 
+When it looks in your INF file it is going to see debug Lib, and when you look at the debug serial port it’s going to see serial port.  
+
+As long as there is at least one of each library instance in the workspace and in DSC file, it will be built behind the scenes. You won’t even realize that there is more than one dependency under your module, and behind the scenes is doing this for everything. 
+Another NOTE:  Most libraries are dependent on another library the same way that .c and .h files are dependent upon some other .c and .h files.. 
 
 
 ---?image=/assets/images/slides/Slide42.JPG
@@ -1042,7 +1067,7 @@ See EDK II INF  File Specification for more details and examples
 <br>
 <br>
 <br>
-<span style="font-size:0.5em" ><font color="yellow">EDK II Specifications: </font> <a href="https://github.com/tianocore/tianocore.github.io/wiki/EDK-II-Specifications">https://github.com/tianocore/tianocore.github.io/wiki/EDK-II-Specifications </a></span>
+<span style="font-size:0.5em" ><font color="yellow">*EDK II Specifications: </font> <a href="https://github.com/tianocore/tianocore.github.io/wiki/EDK-II-Specifications">https://github.com/tianocore/tianocore.github.io/wiki/EDK-II-Specifications </a></span>
 
 Note:
 
@@ -1125,7 +1150,7 @@ Note:
 
 @[1-7](Defines for this .INF file; BASE_NAME results in this name.efi file)
 @[9-10]( Source: .c, .h, .uni, .vfr, any files needed for the compiler/linker/lib etc)
-@[12-16](Package dependencies and Libraries this module will include in its final bin image)
+@[12-16](Package dependencies and Libraries this module will include in its final binary image)
 
 Note:
 
@@ -1209,7 +1234,7 @@ UefiMain (
 ```
 
 @[7]( The function name is the same as in the .inf file "ENTRY_POINT" define)
-@[8-9](Parameters passed to EVERY UEFI entry point: Handle to "itself" AKA "this", EFI_SYSTEM_TABLE)
+@[8-9](Parameters passed to EVERY UEFI entry point: Handle to "itself" AKA "this", EFI_SYSTEM_TABLE, a pointer to <b>Everything</b> in the system)
 @[12]( This function does not really do anything but return "success", EFI_SUCCESS = 0)
 
 
@@ -1639,7 +1664,8 @@ Note:
 ---
 @title[UEFI Driver Example - Disk I/O]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a>
+- entry point</span><br>
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
 <pre>
@@ -1665,7 +1691,8 @@ InitializeDiskIo (
 ```
 </pre>
 @[3](Entry point for this UEFI Driver)
-@[11](Install -Supported, Start and Stop UEFI Driver binding protocol)
+@[8-11](Install -Supported, Start and Stop for the UEFI Driver binding protocol)
+@[3-17](The UEFI Driver Only does the <b>Install</b> then EXITs)
 </div>
 <div class="right2">
 <span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
@@ -1685,7 +1712,8 @@ Note:
 ---
 @title[UEFI Driver Example - Disk I/O 02]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a>
+- Supported </span><br>
 
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
@@ -1731,7 +1759,8 @@ Using the global gEfiBlockIoProtocolGuid protocol to determine if this device co
 ---
 @title[UEFI Driver Example - Disk I/O 03]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a>
+- Start</span><br>
 
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
@@ -1793,7 +1822,7 @@ Note:
 @title[DXE Example .INF File - PlatformInfoDxe]
 <p align="right"><span class="gold" >DXE Driver Example - PlatformInfoDxe</span></p>
 @fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2-platforms/tree/devel-MinnowBoardMax-UDK2017/Vlv2TbltDevicePkg/PlatformInfoDxe">https://github.com/tianocore/edk2-platforms/ PlatformInfoDxe</a></span><br>
-<span style="font-size:0.6em" >Notice the MODULE TYPE, C function Entry point and the [Depex] differences in the INF file </span>
+<span style="font-size:0.6em background-color:#1f1c18; padding: 1px 15px; border-radius: 15px"  >Notice the MODULE TYPE, C function Entry point and the [Depex] differences in the INF file </span>
 <div class="left1">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
 <pre>
