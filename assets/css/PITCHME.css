@@ -224,6 +224,18 @@ span.aside {
 }
 
 
+.gp-bullet-black { 
+  color:#000000;
+  margin-left: 10px; 
+}
+
+
+.gp-bullet-white{ 
+  color:#000000;
+  margin-left: 10px; 
+}
+
+
 h6 {
     font-weight: bold;
     font-size: 50%;

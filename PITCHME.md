@@ -1629,7 +1629,7 @@ Note:
 @title[UEFI Driver Example - Disk I/O]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
 <br>
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
+@fa[github gp-bullet-black]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
 
 Note:
 - PCI Platform DXE
@@ -1639,6 +1639,7 @@ Note:
 ---
 @title[UEFI Driver Example - Disk I/O]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
+@fa[github gp-bullet-black]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
 
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
@@ -1680,15 +1681,14 @@ InitializeDiskIo (
 </pre>
 </div>
 
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
-
 Note:
 
 
 
-+++
+---
 @title[UEFI Driver Example - Disk I/O 02]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
+@fa[github gp-bullet-black]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
 
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
@@ -1727,15 +1727,14 @@ DiskIoDriverBindingSupported (
 </pre>
 </div>
 
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
-
 Note:
 
 
 
-+++
+---
 @title[UEFI Driver Example - Disk I/O 03]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
+@fa[github gp-bullet-black]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
 
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
@@ -1776,8 +1775,6 @@ EFIAPI
 </pre>
 </div>
 
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
-
 Note:
 
 
@@ -1786,7 +1783,7 @@ Note:
 @title[DXE Driver Example - PlatformInfoDxe]
 <p align="right"><span class="gold" >DXE Driver Example - PlatformInfoDxe</span></p>
 <br>
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2-platforms/tree/devel-MinnowBoardMax-UDK2017/Vlv2TbltDevicePkg/PlatformInfoDxe">https://github.com/tianocore/edk2-platforms/ PlatformInfoDxe</a></span><br>
+@fa[github gp-bullet-black]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2-platforms/tree/devel-MinnowBoardMax-UDK2017/Vlv2TbltDevicePkg/PlatformInfoDxe">https://github.com/tianocore/edk2-platforms/ PlatformInfoDxe</a></span><br>
 
 Note:
 - PCI Platform DXE
@@ -1798,7 +1795,7 @@ Note:
 @title[PEI Driver (PEIM) Example - CpuIoPei]
 <p align="right"><span class="gold" >PEI Driver (PEIM) Example - CpuIoPei</span></p>
 <br>
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/UefiCpuPkg/CpuIoPei">https://github.com/tianocore/edk2/ UefiCpuPkg/CpuIoPei  </a> </span>
+@fa[github gp-bullet-black]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/UefiCpuPkg/CpuIoPei">https://github.com/tianocore/edk2/ UefiCpuPkg/CpuIoPei  </a> </span>
 
 Note:
 - PCI Platform DXE
