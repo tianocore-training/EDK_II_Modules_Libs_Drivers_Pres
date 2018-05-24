@@ -1832,6 +1832,7 @@ PlatformInfoInit (
 </pre>
 </div>
 <br>
+<br>
 <span style="font-size:0.7em" >Notice the MODULE TYPE, C function Entry point and the [Depex] differences in the INF file </span>
 
 
