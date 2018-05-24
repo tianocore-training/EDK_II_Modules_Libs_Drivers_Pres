@@ -746,7 +746,7 @@ The same set of UEFI or firmware interfaces are available to applications that d
 - Enable rapid application development
 
 
----?image=/assets/images/slides/Slide56.JPG
+---?image=/assets/images/slides/Slide56_1.JPG
 @title[Defining a UEFI Application -Usages]
 <p align="right"><span class="gold" >Defining a UEFI Application</span></p>
 <span style="font-size:0.9em" ><font color="#92D050">UEFI Loadable Image Usages</font></span><br>
@@ -1625,7 +1625,7 @@ Note:
   
   
 
----?image=/assets/images/slides/Slide112.JPG
+---?image=/assets/images/slides/Slide112_1.JPG
 @title[UEFI Driver Example - Disk I/O]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
 <br>
@@ -1782,7 +1782,7 @@ Note:
 
 
 
----?image=/assets/images/slides/Slide117.JPG
+---?image=/assets/images/slides/Slide117_1.JPG
 @title[DXE Driver Example - PlatformInfoDxe]
 <p align="right"><span class="gold" >DXE Driver Example - PlatformInfoDxe</span></p>
 <br>
@@ -1794,7 +1794,7 @@ Note:
 - Under the Platform Package
 
 
----?image=/assets/images/slides/Slide121.JPG
+---?image=/assets/images/slides/Slide121_1.JPG
 @title[PEI Driver (PEIM) Example - CpuIoPei]
 <p align="right"><span class="gold" >PEI Driver (PEIM) Example - CpuIoPei</span></p>
 <br>
