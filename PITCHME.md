@@ -689,13 +689,13 @@ Eye chart of many - MANY Many Libraries in the EDK II code
 
 ---?image=/assets/images/slides/Slide48.JPG
 @title[MdePkg Library Doc. Location ]
-<p align="right"><span class="gold" >MdePkg Library Doc. Location </span></p>
+<p align="right"><span class="gold" >MdePkg Library .CHM file Location </span></p>
 <span style="font-size:0.8em" ><a href="https://github.com/tianocore/tianocore.github.io/wiki/UDK2018#documentation">tianocore.org UDK2018 Documentation </a>  on </span>
 <br>
 <br>
 <div class="left1">
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/tianocore.github.io/wiki/UDK">Latest UDK Release </a>  </span><br><br>
-@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/tianocore.github.io/wiki/UDK2018">UDK2018</a></span><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.8em">&nbsp;&nbsp;<a href="https://github.com/tianocore/tianocore.github.io/wiki/UDK">Latest UDK Release </a>  </span><br><br><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.8em">&nbsp;&nbsp;<a href="https://github.com/tianocore/tianocore.github.io/wiki/UDK2018">UDK2018</a></span><br>
 </div>
 <div class="right1">
    <p align="center"><span style="font-size:01.2em" ><font color="yellow"></font></span></p>
@@ -746,15 +746,18 @@ chm file unlock – right click –properties –check unblock
 ---?image=/assets/images/slides/Slide54.JPG
 @title[Defining a UEFI Application]
 <p align="right"><span class="gold" >Defining a UEFI Application</span></p>
-<span style="font-size:0.9em" ><font color="#92D050">Characteristics of a UEFI Loadable Image</font></span><br>
+<span style="font-size:01.0em" ><font color="#92D050">Characteristics of a UEFI Loadable Image</font></span><br>
 <br>
-- <span style="font-size:0.7em" >Loaded by UEFI loader, just like drivers</span> |
-- <span style="font-size:0.7em" >Does not register protocols </span> |
-- <span style="font-size:0.7em" >Consumes protocols</span> |
-- <span style="font-size:0.7em" >Typically exits when completed (user driven )</span> |
-- <span style="font-size:0.7em" >Same set of interfaces as drivers available</span> |
+@ul[no-bullet]
+- @fa[certificate gp-bullet-white]<span style="font-size:0.8em" >&nbsp;&nbsp;Loaded by UEFI loader, just like drivers</span> 
+- @fa[certificate gp-bullet-white]<span style="font-size:0.8em" >&nbsp;&nbsp;Does not register protocols </span> 
+- @fa[certificate gp-bullet-white]<span style="font-size:0.8em" >&nbsp;&nbsp;Consumes protocols</span> 
+- @fa[certificate gp-bullet-white]<span style="font-size:0.8em" >&nbsp;&nbsp;Typically exits when completed (user driven )</span> 
+- @fa[certificate gp-bullet-white]<span style="font-size:0.8em" >&nbsp;&nbsp;Same set of interfaces as drivers available</span> 
+@ulend
 
 Note:
+@fa[certificate gp-bullet-green]<span style="font-size:0.9em">&nbsp;&nbsp;What is a EDK II Module</span><br>
 
 UEFI Applications are just like UEFI drivers, they are loadable images. 
 
@@ -774,13 +777,15 @@ The same set of UEFI or firmware interfaces are available to applications that d
 ---?image=/assets/images/slides/Slide56_1.JPG
 @title[Defining a UEFI Application -Usages]
 <p align="right"><span class="gold" >Defining a UEFI Application</span></p>
-<span style="font-size:0.9em" ><font color="#92D050">UEFI Loadable Image Usages</font></span><br>
+<span style="font-size:01.0em" ><font color="#92D050">UEFI Loadable Image Usages</font></span><br>
 <br>
-- <span style="font-size:0.7em" >Diagnostics:  Platform / Factory  </span> |
-- <span style="font-size:0.7em" >Utilities </span> |
-- <span style="font-size:0.7em" >Driver Prototyping </span> |
-- <span style="font-size:0.7em" >“Platform” Applications </span> |
-- <span style="font-size:0.7em" >Portable Across Platforms (IA32, X64, ARM, Itanium, etc.) </span> |
+@ul[no-bullet]
+- @fa[certificate gp-bullet-white]<span style="font-size:0.8em" >&nbsp;&nbsp;Diagnostics:  Platform / Factory  </span> 
+- @fa[certificate gp-bullet-white]<span style="font-size:0.8em" >&nbsp;&nbsp;Utilities </span> 
+- @fa[certificate gp-bullet-white]<span style="font-size:0.8em" >&nbsp;&nbsp;Driver Prototyping </span> 
+- @fa[certificate gp-bullet-white]<span style="font-size:0.8em" >&nbsp;&nbsp;“Platform” Applications </span> 
+- @fa[certificate gp-bullet-white]<span style="font-size:0.8em" >&nbsp;&nbsp;Portable Across Platforms (IA32, X64, ARM, Itanium, etc.) </span> 
+@ulend
 
 Note:
 Their usages include factory testing, platform diagnostics (no OS required), and other various pre-boot applications you can think of where the need to do some operation without an OS would be useful.
