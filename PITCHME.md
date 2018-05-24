@@ -1643,7 +1643,7 @@ Note:
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
 <pre>
-```C
+```
 EFI_STATUS
 EFIAPI
 InitializeDiskIo (
@@ -1666,13 +1666,13 @@ InitializeDiskIo (
 }
 ```
 </pre>
-@[3]
+@[4](Entry point for this UEFI Driver)
 @[13](Install -Supported, Start and Stop UEFI Driver binding protocol)
 </div>
 <div class="right2">
 <span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
 <pre>
-```xml
+```
 [Defines]
  . . .
   ENTRY_POINT  = InitializeDiskIo
@@ -1680,18 +1680,20 @@ InitializeDiskIo (
 </pre>
 </div>
 
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
+
+Note:
+
 
 
 +++
-@title[UEFI Driver Example - Disk I/O]
+@title[UEFI Driver Example - Disk I/O 02]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
-<span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
-```xml
-[Protocols]
-  gEfiBlockIoProtocolGuid  ## TO_START
-```
+
+<div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
-```C
+<pre>
+```
 EFI_STATUS
 EFIAPI
 DiskIoDriverBindingSupported (
@@ -1700,39 +1702,45 @@ DiskIoDriverBindingSupported (
   IN EFI_DEVICE_PATH_PROTOCOL     *RemainingDevicePath OPTIONAL
   )
 {
-  EFI_STATUS            Status;
-  EFI_BLOCK_IO_PROTOCOL *BlockIo;
-   
-   Status = gBS->OpenProtocol (
+  Status = gBS->OpenProtocol (
 	ControllerHandle,
       &gEfiBlockIoProtocolGuid,
       (VOID **) &BlockIo,
-	This->DriverBindingHandle,
-	ControllerHandle,
-	EFI_OPEN_PROTOCOL_BY_DRIVER
+	  This->DriverBindingHandle,
+	  ControllerHandle,
+	  EFI_OPEN_PROTOCOL_BY_DRIVER
 	);
-   if (EFI_ERROR (Status)) {
-    return Status;
-  }
-
+	
 ```
-@[3]
-@[13](Install -Supported, Start and Stop UEFI Driver binding protocol)
+</pre>
+@[4](Entry point for Supported)
+@[12]( Using the global gEfiBlockIoProtocolGuid protocol)
+</div>
+<div class="right2">
+<span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
+<pre>
+```
+[Protocols]
+  . . .
+  gEfiBlockIoProtocolGuid  ## TO_START
+```
+</pre>
+</div>
+
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
+
+Note:
 
 
 
 +++
-@title[UEFI Driver Example - Disk I/O]
+@title[UEFI Driver Example - Disk I/O 03]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
-<span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
-```xml
-[Protocols]
-  gEfiDiskIoProtocolGuid   ## BY_START
-  gEfiDiskIo2ProtocolGuid  ## BY_START
 
-```
+<div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
-```C
+<pre>
+```
 EFI_STATUS
 EFIAPI
  DiskIoDriverBindingStart (
@@ -1741,9 +1749,7 @@ EFIAPI
   IN EFI_DEVICE_PATH_PROTOCOL     *RemainingDevicePath OPTIONAL
   )
 {
-  EFI_STATUS            Status;
-  DISK_IO_PRIVATE_DATA  *Instance;  
-// • • •
+
   if (Instance->BlockIo2 != NULL) {
     Status = gBS->InstallMultipleProtocolInterfaces (
 	&ControllerHandle,
@@ -1751,15 +1757,28 @@ EFIAPI
 	&gEfiDiskIo2ProtocolGuid, &Instance->DiskIo2,
 	NULL	
 	);
-  	} else {
-    	Status = gBS->InstallMultipleProtocolInterfaces (
-	   &ControllerHandle,
-	   &gEfiDiskIoProtocolGuid,  &Instance->DiskIo,
-	   );
+	
+```
+</pre>
+@[4](Entry point for Start function)
+@[14-15]( Using the global gEfiDiskIoProtocolGuid and gEfiDiskIo2ProtocolGuid protocols to INSTALL handles to)
+</div>
+<div class="right2">
+<span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
+<pre>
+```
+[Protocols]
+  . . .
+  gEfiDiskIoProtocolGuid   ## BY_START
+  gEfiDiskIo2ProtocolGuid  ## BY_START
 
 ```
-@[3]
-@[13](Install -Supported, Start and Stop UEFI Driver binding protocol)
+</pre>
+</div>
+
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
+
+Note:
 
 
 
