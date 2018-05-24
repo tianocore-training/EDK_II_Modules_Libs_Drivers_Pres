@@ -551,18 +551,10 @@ The simple answer is ”you have to know what the library class is based on.”
 
 
 
----?image=/assets/images/slides/Slide34.JPG
+
+---?image=/assets/images/slides/Slide35.JPG
 <!-- .slide: data-transition="none" -->
-@title[Library Instance Hierarchy]
-<p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
-
-
-Note:
-
-+++?image=/assets/images/slides/Slide35.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Library Instance Hierarch 02]
+@title[Library Instance Hierarch]
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
@@ -571,7 +563,7 @@ Note:
 +++?image=/assets/images/slides/Slide36.JPG
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
-@title[Library Instance Hierarch 03]
+@title[Library Instance Hierarch 02]
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
@@ -581,7 +573,7 @@ Note:
 +++?image=/assets/images/slides/Slide37.JPG
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
-@title[Library Instance Hierarch 04]
+@title[Library Instance Hierarch 03]
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
@@ -590,7 +582,7 @@ Note:
 +++?image=/assets/images/slides/Slide38.JPG
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
-@title[Library Instance Hierarch 05]
+@title[Library Instance Hierarch 04]
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
@@ -599,7 +591,7 @@ Note:
 +++?image=/assets/images/slides/Slide39.JPG
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
-@title[Library Instance Hierarch 06]
+@title[Library Instance Hierarch 05]
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
@@ -609,7 +601,7 @@ Note:
 +++?image=/assets/images/slides/Slide40.JPG
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
-@title[Library Instance Hierarch 07]
+@title[Library Instance Hierarch 06]
 <p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
