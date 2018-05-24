@@ -1664,8 +1664,8 @@ InitializeDiskIo (
 }
 ```
 </pre>
-@[4](Entry point for this UEFI Driver)
-@[13](Install -Supported, Start and Stop UEFI Driver binding protocol)
+@[3](Entry point for this UEFI Driver)
+@[11](Install -Supported, Start and Stop UEFI Driver binding protocol)
 </div>
 <div class="right2">
 <span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
@@ -1710,8 +1710,8 @@ DiskIoDriverBindingSupported (
 	
 ```
 </pre>
-@[4](Entry point for Supported)
-@[12]( Using the global gEfiBlockIoProtocolGuid protocol)
+@[3](Entry point for Supported)
+@[11]( Using the global gEfiBlockIoProtocolGuid protocol)
 </div>
 <div class="right2">
 <span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
@@ -1756,8 +1756,8 @@ EFIAPI
 	
 ```
 </pre>
-@[4](Entry point for Start function)
-@[14-15]( Using the global gEfiDiskIoProtocolGuid and gEfiDiskIo2ProtocolGuid protocols to INSTALL handles to)
+@[3](Entry point for Start function)
+@[13-14]( Using the global gEfiDiskIoProtocolGuid and gEfiDiskIo2ProtocolGuid protocols to INSTALL handles to)
 </div>
 <div class="right2">
 <span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
@@ -1788,6 +1788,56 @@ Note:
 - Under the Platform Package
 
 
+
+---
+@title[DXE Example .INF File - PlatformInfoDxe]
+<p align="right"><span class="gold" >DXE Driver Example - PlatformInfoDxe</span></p>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2-platforms/tree/devel-MinnowBoardMax-UDK2017/Vlv2TbltDevicePkg/PlatformInfoDxe">https://github.com/tianocore/edk2-platforms/ PlatformInfoDxe</a></span><br>
+<div class="left">
+<span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
+<pre>
+```
+#include “PlatformInfoDxe.h“
+• • •
+EFI_STATUS
+EFIAPI
+PlatformInfoInit (
+  IN EFI_HANDLE        ImageHandle,
+  IN EFI_SYSTEM_TABLE  *SystemTable
+  )
+/*++
+{
+// • • •
+  return Status;
+}
+```
+</pre>
+@[3](Entry point for this Dxe Driver)
+</div>
+<div class="right">
+<span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
+<pre>
+```
+[Defines]
+ . . .
+  MODULE_TYPE     = DXE_DRIVER
+  VERSION_STRING  = 1.0
+  ENTRY_POINT     = PlatformInfoInit
+ . . .
+
+[Depex]
+  gEfiVariableArchProtocolGuid AND 
+    gEfiVariableWriteArchProtocolGuid
+```
+</pre>
+</div>
+
+Note:
+
+MODULE_TYPE         = DXE_DRIVER
+
+Depex section is part of the Dxe driver INF file
+
 ---?image=/assets/images/slides/Slide121_1.JPG
 @title[PEI Driver (PEIM) Example - CpuIoPei]
 <p align="right"><span class="gold" >PEI Driver (PEIM) Example - CpuIoPei</span></p>
@@ -1800,6 +1850,56 @@ Note:
 - Under the Platform Package
 
 
+---
+@title[PEI Driver (PEIM) Example - CpuIoPei]
+<p align="right"><span class="gold" >PEI Driver (PEIM) Example - CpuIoPei</span></p>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/UefiCpuPkg/CpuIoPei">https://github.com/tianocore/edk2/ UefiCpuPkg/CpuIoPei  </a> </span>
+<div class="left">
+<span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
+<pre>
+```
+#include “CpuIoPei.h“
+ //• • •
+EFI_STATUS
+EFIAPI
+CpuIoInitialize (
+  IN EFI_PEI_FILE_HANDLE     FileHandle,
+  IN CONST EFI_PEI_SERVICES  **PeiServices
+  )
+{
+  EFI_STATUS  Status;
+ //• • •
+  return EFI_SUCCESS;
+}
+```
+</pre>
+@[3](Entry point for this Dxe Driver)
+@[5-6]("FileHandle" - Instead of the ImageHandle & NO EFI_SYSTEM_TABLE - Not yet defined)
+
+</div>
+<div class="right">
+<span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
+<pre>
+```
+[Defines]
+ . . .
+  MODULE_TYPE       = PEIM
+  VERSION_STRING    = 1.0  
+  ENTRY_POINT       = CpuIoInitialize
+ . . .
+
+[Depex]
+   TRUE
+```
+</pre>
+</div>
+
+Note:
+
+- INF file Module type PEIM
+
+- "FileHandle" - Instead of the ImageHandle & 
+- NO EFI_SYSTEM_TABLE - because it is Not yet defined so pointer to the PEI Services is uses similar to EFI System table
 
 ---  
 @title[Summary]
