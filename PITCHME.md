@@ -1639,8 +1639,7 @@ Note:
 ---
 @title[UEFI Driver Example - Disk I/O]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
-@fa[github gp-bullet-black]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
-
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
 <pre>
@@ -1650,9 +1649,8 @@ EFIAPI
 InitializeDiskIo (
   IN EFI_HANDLE           ImageHandle,
   IN EFI_SYSTEM_TABLE     *SystemTable
-  )
-{
-  EFI_STATUS              Status;
+)
+  // . . .
   Status = EfiLibInstallDriverBindingComponentName2 (
              ImageHandle,
              SystemTable,
@@ -1662,7 +1660,6 @@ InitializeDiskIo (
              &gDiskIoComponentName2
              );
   ASSERT_EFI_ERROR (Status);
-
   return Status;
 }
 ```
@@ -1688,7 +1685,7 @@ Note:
 ---
 @title[UEFI Driver Example - Disk I/O 02]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
-@fa[github gp-bullet-black]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
 
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
@@ -1734,7 +1731,7 @@ Note:
 ---
 @title[UEFI Driver Example - Disk I/O 03]
 <p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
-@fa[github gp-bullet-black]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
+@fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
 
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
