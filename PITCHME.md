@@ -1793,7 +1793,7 @@ Note:
 @title[DXE Example .INF File - PlatformInfoDxe]
 <p align="right"><span class="gold" >DXE Driver Example - PlatformInfoDxe</span></p>
 @fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2-platforms/tree/devel-MinnowBoardMax-UDK2017/Vlv2TbltDevicePkg/PlatformInfoDxe">https://github.com/tianocore/edk2-platforms/ PlatformInfoDxe</a></span><br>
-<div class="left">
+<div class="left1">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
 <pre>
 ```
@@ -1812,9 +1812,9 @@ PlatformInfoInit (
 }
 ```
 </pre>
-
 </div>
-<div class="right">
+
+<div class="right1">
 <span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
 <pre>
 ```
@@ -1831,6 +1831,7 @@ PlatformInfoInit (
 ```
 </pre>
 </div>
+
 <span style="font-size:0.7em" >Notice the MODULE TYPE, C function Entry point and the [Depex] differences in the INF file </span>
 
 
@@ -1856,7 +1857,7 @@ Note:
 @title[PEI Driver (PEIM) Example - CpuIoPei]
 <p align="right"><span class="gold" >PEI Driver (PEIM) Example - CpuIoPei</span></p>
 @fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/UefiCpuPkg/CpuIoPei">https://github.com/tianocore/edk2/ UefiCpuPkg/CpuIoPei  </a> </span>
-<div class="left">
+<div class="left1">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
 <pre>
 ```
@@ -1879,7 +1880,7 @@ CpuIoInitialize (
 @[6-7]("FileHandle" - Instead of the ImageHandle & NO EFI_SYSTEM_TABLE - Not yet defined)
 
 </div>
-<div class="right">
+<div class="right1">
 <span style="font-size:0.8em" ><font color="yellow">INF file</font></span>
 <pre>
 ```
