@@ -713,8 +713,7 @@ chm file unlock – right click –properties –check unblock
 <!-- .slide: data-transition="none" -->
 @title[Library Navigation Demonstration video]
 <p align="right"><span class="gold" >Library Navigation Demonstration</span></p>
-![video](https://www.youtube.com/embed/0DxaQBfKkTc)
-
+![video](https://www.youtube.com/embed/s8Zw1w1iQS4)
 Note:
 
 - Install a CHM Viewer for Ubuntu
@@ -724,7 +723,6 @@ bash$ sudo aptitude install kchmviewer
 </pre>
 
 chm file unlock – right click –properties –check unblock
-
 
 
 
