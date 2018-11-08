@@ -32,5 +32,5 @@
 # EDK_II_Modules_Libs_Drivers_pres
 Overview of EDK II Modules: Libraries, Drivers &amp; Applications
 
-To see the Slides goto https://gitpitch.com/Laurie0131/EDK_II_Modules_Libs_Drivers_pres/master#/
+To see the Slides goto https://gitpitch.com/tianocore-training/EDK_II_Modules_Libs_Drivers_pres/master#/
 
