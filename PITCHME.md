@@ -61,32 +61,22 @@ Note:
 
  
 ---?image=/assets/images/slides/Slide4.JPG
-<!-- .slide: data-transition="none" -->
 @title[Modules]
 ### <p align="right"><span class="gold" >Modules</span></p>
-
-Note:
-
-So the first thing we have in trying to break EDK II down is Modules:
- 
-- A module is the smallest separate object compiled in the EDK II.  A module is a single resultant .EFI file.
-- Module examples:
-- A UEFI/DXE driver 
-- A PEIM
-- A UEFI application
-- A Library 
-
-- All of these could be a module.  A modules could  be one entity
-
-
-
-+++?image=/assets/images/slides/Slide5.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Modules 02]
-### <p align="right"><span class="gold" >Modules</span></p>
+@css[text-white fragment](<b> Smallest separate object compiled in EDK II</b>)
 <br>
-Smallest separate object compiled in EDK II
+<br>
+<br>
+@css[text-yellow fragment](<b>@color[yellow](Compiles to)<br>@color[yellow](`.EFI` File)</b>)
+
+
+@snap[east span-35]
+@css[ text-white fragment](<b>UEFI/DXE Driver <br>@color[yellow](PEIM)<br>@color[orange](UEFI App.) </b>or <b><br>@color[#00ffff](Library) </b>)
+@snapend
+
+@snap[south span-90 fragment]
+@box[bg-purple-pp-trans text-white  rounded](<b>Modules: &nbsp;&nbsp;Building Blocks of EDK II</b>)
+@snapend
 
 Note:
 
@@ -104,9 +94,50 @@ So the first thing we have in trying to break EDK II down is Modules:
 
 
  
----?image=/assets/images/slides/Slide7.JPG
+---
 @title[Module Types]
 ### <p align="right"><span class="gold" >Module Types</span></p>
+@snap[north span-60 fragment]
+<br>
+<br>
+<br>
+@box[bg-purple-pp text-white ](<span style="font-size:01.20em" ><b>Most Used Module Types</b></span>)
+@snapend
+
+@snap[north-west span-100 fragment]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p align="left" style="line-height:80%"><span style="font-size:0.9em; font-weight: bold;" >
+@color[#00b0f0](`PEI_CORE`) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @color[yellow](`UEFI_APPLICATION`) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @color[orange](`DXE_CORE`)<br><br>
+@color[orange](`BASE`) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @color[#00b0f0](`DXE_RUNTIME_DRIVER`) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br><br>
+@color[#87E2A9](`PEIM`) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @color[yellow](`UEFI_DRIVER`) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @color[#87E2A9](`DXE_DRIVER`)<br>
+</span></p>
+
+@snapend
+
+@snap[south span-100 fragment]
+<p align="left" style="line-height:80%"><span style="font-size:0.65em"><i>syntax:</i></span><br>
+<span style="font-size:0.65em; font-family: Courier New; color: yellow; font-weight: bold; background-color: #0d0d0d" > 
+&lt;ModuleTypes&gt;&nbsp; ::= &nbsp;&lt;ModuleType&gt; [&lt;Space&gt; &lt;ModuleType&gt;]
+</span> </p>
+@snapend
+
+
+@snap[north-west span-90 fragment]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p style="line-height:20%"><span style="font-size:0.65em"><br><br><br><br><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span style="font-size:02.65em">@color[red](&DDotrahd;)</span></p>
+@snapend
 
 Note:
 
@@ -132,46 +163,53 @@ Note:
 - SAL_RT_DRIVER 
 - APPLICATION
 
+There are many Module types.  This also determines how the module code is compiled and how libraries are associated with each module.
 
----?image=/assets/images/slides/Slide9.JPG
-<!-- .slide: data-transition="none" -->
+the syntax is: as shown on the slide
+
+First we will show the UEFI_APPLICATION type of module since it is the simplest and can be somewhat independent from the underlining hardware.
+
+
+
+---
 @title[Module Source - minimum files]
-<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.8em" >- minimum files</span></p>
+<p align="right"><span class="gold" ><b>Module Source Contents </b></span><span style="font-size:0.8em" >- minimum files</span></p>
+<table id="recTable2">
+	<tr>
+		<td bgcolor="#121212" height=".025"><p style="line-height:010%"><span style="font-size:0.8em" ><b>MODULE_TYPE</b></span></p></td>
+		<td bgcolor="#121212" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.8em" ><b>Example Source files </b></span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#404040" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`UEFI_APPLICATION`</b></span></p></td>
+		<td  bgcolor="#404040" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.65em" >@color[yellow](<b>`Foo.c, Foo.inf `</b>)</span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#404040" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`UEFI_DRIVER`</b></span></p></td>
+		<td  bgcolor="#404040" height=".025" width="70%"><p style="line-height:050%"><span style="font-size:0.65em" >@color[yellow](<b>`FooDriver.c, FooDriver.h, FooDriver.vfr,`<br>`FooDriver.uni, FooDriver.inf `</b>)</span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#404040" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`DXE_DRIVER`</b></span></p></td>
+		<td  bgcolor="#404040" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.65em" >@color[yellow](<b>`FooDxe.c, FooDxe.h, FooDxe.inf`</b>)</span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#404040" height=".025"><p style="line-height:050%"><span style="font-size:0.65em" ><b>DXE, UEFI or PEIM Library</b></span></p></td>
+		<td  bgcolor="#404040" height=".025" width="70%"><p style="line-height:050%"><span style="font-size:0.65em" >@color[yellow](<b>`FooLib.c, FooLib.h, FooLib.inf `</b>)&nbsp;&nbsp; ( w/ `LIBRARY_CLASS=` )</span></p></td>
+	</tr>
+
+</table>
+@snap[south-west span-100]
+@box[bg-brick-trans text-white rounded fragment ](<span style="font-size:01.20em" ><b>Complexity - Greater number of source files</b></span>)
+@box[bg-lt-orange-trans text-white rounded fragment ](<span style="font-size:01.20em" ><b>.INF file - One file is required per module</b></span>)
+@box[bg-gold2-trans text-white rounded fragment ](<span style="font-size:01.20em" ><b>.EFI file - Sources compiled to a single .EFI file</b></span>)
+@snapend
 
 Note:
 
-+++?image=/assets/images/slides/Slide10.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Module Source - minimum files 02 ]
-<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.8em" >- minimum files</span></p>
+Example of the naming and number of files associated with the modules types
 
-Note:
-
-+++?image=/assets/images/slides/Slide11.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Module Source - minimum files 03 ]
-<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.8em" >- minimum files</span></p>
-
-Note:
-
-+++?image=/assets/images/slides/Slide12.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Module Source - minimum files 04 ]
-<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.8em" >- minimum files</span></p>
-
-Note:
-
-+++?image=/assets/images/slides/Slide13.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Module Source - minimum files 05 ]
-<p align="right"><span class="gold" >Module Source Contents </span><span style="font-size:0.8em" >- minimum files</span></p>
-
-Note:
-
+- the number of files is based on the Complexity of the UEFI / DXE driver and or UEFI application
+- There is a requirement that a module must have at least 1 .INF file
+- The resulting compilation will be a .EFI file 
 
 
 ---?image=assets/images/binary-strings-black2.jpg
@@ -181,14 +219,55 @@ Note:
 <span style="font-size:0.9em" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
 
----?image=/assets/images/slides/Slide16.JPG
-<!-- .slide: data-transition="none" -->
+---
 @title[Library Class ]
-<p align="right"><span class="gold" >Library Class</span></p>
+<p align="right"><span class="gold" ><b>Library Class</b></span></p>
+<span style="font-size:0.85em"><b><i>Syntax:</i></b></span>
+```
+[LibraryClasses.common]
+  <LibraryClassName>|<LibraryInstancePathToInf/Name.inf>
+
+  DebugLib|MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
+
+```
+
+@snap[west span-20]
+@box[bg-royal text-white rounded fragment ](<span style="font-size:01.20em" ><b>Name</b></span>)
+@snapend
+
+@snap[west span-25 fragment]
+<p align="right"><span style="font-size:02.50em" >@color[yellow](<b>&vert;</b>)</span></p>
+@snapend
+
+@snap[midpoint span-40 fragment]
+@box[bg-purple-pp text-white rounded  ](<span style="font-size:01.20em" ><b>Implementation<sup>1</sup></b></span>)
+@snapend
+
+@snap[midpoint span-40 fragment]
+@box[bg-green2 text-white rounded  ](<span style="font-size:01.20em" ><b>Implementation<sup>2</sup></b></span>)
+@snapend
+
+@snap[midpoint span-40 fragment]
+@box[bg-brick text-white rounded  ](<span style="font-size:01.20em" ><b>Implementation<sup>3</sup></b></span>)
+@snapend
+
+
+@snap[south span-80 ]
+@box[bg-green text-white rounded fragment ](<span style="font-size:01.20em" ><b>Consistent set of interfaces</b></span>)
+<br>
+<br>
+<br>
+@snapend
+
+@snap[south span-100 ]
+@box[bg-purple-pp text-white rounded fragment ](<span style="font-size:01.20em" ><b>Does not describe implementation of the interfaces</b></span>)
+@snapend
+
+
 
 Note:
 
-#### Syntax
+#### Syntax for the .dsc file when mapping Libraries to modules
 
 - [LibraryClasses.common]
 -   <LibraryClassName>|<LibraryInstancePathToInf/Name.inf>
@@ -222,223 +301,62 @@ For example there may be three library instances for a given function and one li
 - At the top of the slide there is an example of [libraryclasses.common] for a DSC file.
 
 
-
-+++?image=/assets/images/slides/Slide17.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Library Class 02]
-<p align="right"><span class="gold" >Library Class</span></p>
-
-Note:
-
-#### Syntax
-
-- [LibraryClasses.common]
--   <LibraryClassName>|<LibraryInstancePathToInf/Name.inf>
--   DebugLib|MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
-
-It has a library class name, a pipe symbol and then a library instance, which is identified by the path to the INF, then the INF itself. 
-
-So for example, the “DebugLib”, class is identified by the MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
-The library instance, BaseDebugLibNull, has all the required interfaces for debug Lib.  And that’s the one that will be linked against the modules in this example.
-
-
-- Consistent set of interfaces 
-#### First, a basic library class definition: <br>
-A library class is a set of interfaces; it does not have any implementation information
-
-It is identified by one GUID. And usually contains
-- some macros, 
-- sometimes global variables, 
-- some functions uniquely
-
- Each library class has one GUID, and there is a mapping of a library class to library instance. 
-For example there may be three library instances for a given function and one library class that they would all represent. In this example, the DSC file is going to map library class to a library instance.
-
-
-- Does not describe implementation of the interfaces
-- The implementation is decided at the platform level
-- DSC file maps class to instance
-
-- library class
-
-- At the top of the slide there is an example of [libraryclasses.common] for a DSC file.
-
-
-
-+++?image=/assets/images/slides/Slide18.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Library Class 03]
-<p align="right"><span class="gold" >Library Class</span></p>
-
-Note:
-
-#### Syntax
-
-- [LibraryClasses.common]
--   <LibraryClassName>|<LibraryInstancePathToInf/Name.inf>
--   DebugLib|MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
-
-It has a library class name, a pipe symbol and then a library instance, which is identified by the path to the INF, then the INF itself. 
-
-So for example, the “DebugLib”, class is identified by the MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
-The library instance, BaseDebugLibNull, has all the required interfaces for debug Lib.  And that’s the one that will be linked against the modules in this example.
-
-
-- Consistent set of interfaces 
-#### First, a basic library class definition: <br>
-A library class is a set of interfaces; it does not have any implementation information
-
-It is identified by one GUID. And usually contains
-- some macros, 
-- sometimes global variables, 
-- some functions uniquely
-
- Each library class has one GUID, and there is a mapping of a library class to library instance. 
-For example there may be three library instances for a given function and one library class that they would all represent. In this example, the DSC file is going to map library class to a library instance.
-
-
-- Does not describe implementation of the interfaces
-- The implementation is decided at the platform level
-- DSC file maps class to instance
-
-- library class
-
-- At the top of the slide there is an example of [libraryclasses.common] for a DSC file.
-
-
-+++?image=/assets/images/slides/Slide19.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Library Class 04]
-<p align="right"><span class="gold" >Library Class</span></p>
-
-Note:
-
-#### Syntax
-
-- [LibraryClasses.common]
--   <LibraryClassName>|<LibraryInstancePathToInf/Name.inf>
--   DebugLib|MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
-
-It has a library class name, a pipe symbol and then a library instance, which is identified by the path to the INF, then the INF itself. 
-
-So for example, the “DebugLib”, class is identified by the MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
-The library instance, BaseDebugLibNull, has all the required interfaces for debug Lib.  And that’s the one that will be linked against the modules in this example.
-
-
-- Consistent set of interfaces 
-#### First, a basic library class definition: <br>
-A library class is a set of interfaces; it does not have any implementation information
-
-It is identified by one GUID. And usually contains
-- some macros, 
-- sometimes global variables, 
-- some functions uniquely
-
- Each library class has one GUID, and there is a mapping of a library class to library instance. 
-For example there may be three library instances for a given function and one library class that they would all represent. In this example, the DSC file is going to map library class to a library instance.
-
-
-- Does not describe implementation of the interfaces
-- The implementation is decided at the platform level
-- DSC file maps class to instance
-
-- library class
-
-- At the top of the slide there is an example of [libraryclasses.common] for a DSC file.
-
-
-+++?image=/assets/images/slides/Slide20.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Library Class 05]
-<p align="right"><span class="gold" >Library Class</span></p>
-
-Note:
-
-#### Syntax
-
-- [LibraryClasses.common]
--   <LibraryClassName>|<LibraryInstancePathToInf/Name.inf>
--   DebugLib|MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
-
-It has a library class name, a pipe symbol and then a library instance, which is identified by the path to the INF, then the INF itself. 
-
-So for example, the “DebugLib”, class is identified by the MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
-The library instance, BaseDebugLibNull, has all the required interfaces for debug Lib.  And that’s the one that will be linked against the modules in this example.
-
-
-- Consistent set of interfaces 
-#### First, a basic library class definition: <br>
-A library class is a set of interfaces; it does not have any implementation information
-
-It is identified by one GUID. And usually contains
-- some macros, 
-- sometimes global variables, 
-- some functions uniquely
-
- Each library class has one GUID, and there is a mapping of a library class to library instance. 
-For example there may be three library instances for a given function and one library class that they would all represent. In this example, the DSC file is going to map library class to a library instance.
-
-
-- Does not describe implementation of the interfaces
-- The implementation is decided at the platform level
-- DSC file maps class to instance
-
-- library class
-
-- At the top of the slide there is an example of [libraryclasses.common] for a DSC file.
-
-
-+++?image=/assets/images/slides/Slide21.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Library Class 06]
-<p align="right"><span class="gold" >Library Class</span></p>
-
-Note:
-
-#### Syntax
-
-- [LibraryClasses.common]
--   <LibraryClassName>|<LibraryInstancePathToInf/Name.inf>
--   DebugLib|MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
-
-It has a library class name, a pipe symbol and then a library instance, which is identified by the path to the INF, then the INF itself. 
-
-So for example, the “DebugLib”, class is identified by the MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
-The library instance, BaseDebugLibNull, has all the required interfaces for debug Lib.  And that’s the one that will be linked against the modules in this example.
-
-
-- Consistent set of interfaces 
-#### First, a basic library class definition: <br>
-A library class is a set of interfaces; it does not have any implementation information
-
-It is identified by one GUID. And usually contains
-- some macros, 
-- sometimes global variables, 
-- some functions uniquely
-
- Each library class has one GUID, and there is a mapping of a library class to library instance. 
-For example there may be three library instances for a given function and one library class that they would all represent. In this example, the DSC file is going to map library class to a library instance.
-
-
-- Does not describe implementation of the interfaces
-- The implementation is decided at the platform level
-- DSC file maps class to instance
-
-- library class
-
-- At the top of the slide there is an example of [libraryclasses.common] for a DSC file.
-
-
-
----?image=/assets/images/slides/Slide23.JPG
-<!-- .slide: data-transition="none" -->
+---
 @title[NULL Library Class]
-<p align="right"><span class="gold" >"NULL" Library Class</span></p>
+<p align="right"><span class="gold" ><b>"NULL" Library Class</b></span></p>
+<br>
+<br>
+<br>
+<br>
+<span style="font-size:0.85em">@color[yellow](<b>Syntax:</b>)</span>
+```xml
+    Pkg/MyModule/MyModule.inf {
+    	 <LibraryClasses>
+      	NULL|Pkg/Library/LibName/LibName.inf
+      	NULL|Pkg/Library/LibName2/LibName2.inf
+  	}
+
+
+```
+<span style="font-size:0.85em">@color[yellow](<b>UEFI Shell example:</b>)</span>
+```xml
+    ShellPkg/Application/Shell/Shell.inf {
+     <LibraryClasses>
+       NULL|ShellPkg/Library/UefiShellDriver1CommandsLib/UefiShellDriver1CommandsLib.inf
+       NULL|ShellPkg/Library/UefiShellNetwork1CommandsLib/UefiShellNetwork1CommandsLib.inf
+	  . . .
+    }      
+
+```
+@snap[north-west span-40]
+<br>
+<br>
+<br>
+@box[bg-royal text-white rounded fragment ](<span style="font-size:01.20em" ><b>Constructors</b></span>)
+@snapend
+
+@snap[north-east span-40]
+<br>
+<br>
+<br>
+@box[bg-lt-orange text-white rounded fragment ](<span style="font-size:01.20em" ><b>Special Cases</b></span>)
+@snapend
+
+
+@snap[north span-65]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+@box[bg-navy text-white rounded fragment ](<span style="font-size:0.90em" ><b>NOT &nbsp; "`...LibNull`" &nbsp; instance</b></span>)
+@snapend
+
+@snap[south-east span-40]
+@box[bg-purple-pp text-white rounded my-box-pad fragment ](<p style="line-height:80%" ><span style="font-size:0.80em" ><b>Open Source Example</b><br></span><span style="font-size:0.50em" >DxeCrc32GuidedSectionExtractLib <br>ShellPkg as used with Profiles<br>&nbsp; </span></p>)
+<br>
+@snapend
 
 Note:
 - Not a named library
@@ -448,100 +366,28 @@ Note:
 - Can be linked more than once
 - Used for special cases
 - DXE Core and DXE IPL section file interpreters
-
-+++?image=/assets/images/slides/Slide24.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[NULL Library Class 02]
-<p align="right"><span class="gold" >"NULL" Library Class</span></p>
-
-Note:
-- Not a named library
-- Not related to LibNull instances (DebugLibNull)
-- May not produce any interfaces
-- Does all work in constructors
-- Can be linked more than once
-- Used for special cases
-- DXE Core and DXE IPL section file interpreters
+- ShellPkg uses the NULL named library with its profiles, thus when compiling a version of the UEFI Shell application, all that is needed is to include the interface as shown in the example on this slide.
 
 
-+++?image=/assets/images/slides/Slide25.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[NULL Library Class 03]
-<p align="right"><span class="gold" >"NULL" Library Class</span></p>
-
-Note:
-- Not a named library
-- Not related to LibNull instances (DebugLibNull)
-- May not produce any interfaces
-- Does all work in constructors
-- Can be linked more than once
-- Used for special cases
-- DXE Core and DXE IPL section file interpreters
 
 
-+++?image=/assets/images/slides/Slide26.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[NULL Library Class 04]
-<p align="right"><span class="gold" >"NULL" Library Class</span></p>
-
-Note:
-- Not a named library
-- Not related to LibNull instances (DebugLibNull)
-- May not produce any interfaces
-- Does all work in constructors
-- Can be linked more than once
-- Used for special cases
-- DXE Core and DXE IPL section file interpreters
-
-
-+++?image=/assets/images/slides/Slide27.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[NULL Library Class 05]
-<p align="right"><span class="gold" >"NULL" Library Class</span></p>
-
-Note:
-- Not a named library
-- Not related to LibNull instances (DebugLibNull)
-- May not produce any interfaces
-- Does all work in constructors
-- Can be linked more than once
-- Used for special cases
-- DXE Core and DXE IPL section file interpreters
-
----?image=/assets/images/slides/Slide30.JPG
-<!-- .slide: data-transition="none" -->
+---
 @title[Locating library classes]
-<p align="right"><span class="gold" >Locating Library Classes</span></p>
+<p align="right"><span class="gold" ><b>Locating Library Classes</b></span></p>
 
-Note:
+@snap[north-west span-100]
+<br>
+<br>
+@box[bg-royal text-white rounded  my-box-pad fragment](<p style="line-height:80%" align="left"><span style="font-size:01.0em" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Library based upon</b><br></span><span style="font-size:0.70em" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Industry specifications &lpar;UEFI, PCI, USB, etc.&rpar; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@color[yellow](`MdePkg/MdeModulePkg`)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Intel’s framework<sup>1</sup> specs <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@color[yellow](`IntelFrameworkPkg/IntelFrameworkModulePkg`)<br>&nbsp;</p>)
+@box[bg-brick text-white rounded  my-box-pad fragment](<span style="font-size:0.90em" >Use the package help files &lpar;`.CHM`&rpar; to find a library or function<br> <i>Example:</i> `MdePkg.chm`</span>)
+<br>
+@box[bg-green text-white rounded  fragment](<span style="font-size:0.90em" > Search WorkSpace &lpar;`.INF`&rpar;  "`LIBRARY_CLASS`" </span>)
+@snapend
 
-How do you find library classes?<br>
-The simple answer is ”you have to know what the library class is based on.”
-- For example, if it is based on industry standards like the UEFI, PI, SMBIOS, ACPI, etc…you are probably going to find it in the MDE package or maybe in the MDE module package. 
+@snap[south-west span-50]
+<span style="font-size:0.50em" ><sup>1</sup>Intel<sup>&reg;</sup> Platform Innovation Framework for UEFI</span>
+@snapend
 
-+++?image=/assets/images/slides/Slide31.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Locating library classes 02]
-<p align="right"><span class="gold" >Locating Library Classes</span></p>
-
-Note:
-
-How do you find library classes?<br>
-The simple answer is ”you have to know what the library class is based on.”
-- For example, if it is based on industry standards like the UEFI, PI, SMBIOS, ACPI, etc…you are probably going to find it in the MDE package or maybe in the MDE module package. 
-
-
-
-+++?image=/assets/images/slides/Slide32.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Locating library classes 03]
-<p align="right"><span class="gold" >Locating Library Classes</span></p>
 
 Note:
 
@@ -552,57 +398,38 @@ The simple answer is ”you have to know what the library class is based on.”
 
 
 
----?image=/assets/images/slides/Slide35.JPG
-<!-- .slide: data-transition="none" -->
+
+---?image=/assets/images/slides/Slide11_1.JPG
 @title[Library Instance Hierarch]
-<p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
+<p align="right"><span class="gold" ><b>Library Instance Hierarchy</b></span></p>
 
-Note:
+@snap[north-west span-30]
+<br>
+<br>
+<p style="line-height:80%" align="left"><span style="font-size:01.50em" >@color[yellow](<b>Form</b>)</span><br>
+<span style="font-size:0.90em" >a hierarchy similar to UEFI drivers</span></p>
+@snapend
 
+@snap[north-east span-30]
+<br>
+<br>
+<p style="line-height:80%" align="right"><span style="font-size:01.50em" >@color[yellow](<b>Link</b>)</span><br>
+<span style="font-size:0.90em" >your module to another</span></p>
+@snapend
 
-+++?image=/assets/images/slides/Slide36.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Library Instance Hierarch 02]
-<p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
+@snap[north span-100]
+<br>
+<br>
+<br>
+<br>
+@css[text-white fragment](<p style="line-height:80%" align="center"><span style="font-size:0.80em" >`DebugLib`</span></p>)
+@css[text-white fragment](<p style="line-height:80%" align="center"><span style="font-size:0.70em" >`DebugLibSerialPort`<br> &lpar;Instance&rpar;</span></p>)
+@css[text-white fragment](<p style="line-height:80%" align="center"><span style="font-size:0.80em" ><br>SerialPort &lpar;Class&rpar;</span></p>)
+@css[text-white fragment](<p style="line-height:80%" align="center"><span style="font-size:01.0em" ><br>`MdePkg` &lpar;Specs&rpar;</span></p>)
+@css[text-white fragment](<p style="line-height:80%" align="center"><span style="font-size:0.70em" ><br><br>@color[red](<b>Build error</b>):Instance of Library class &lbrack;`Foo`...`Lib`&rbrack; is not found... <br>Consumed by module &lbrack;<i>My Module.inf</i>&rbrack;</span></p>)
 
-Note:
+@snapend
 
-
-
-+++?image=/assets/images/slides/Slide37.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Library Instance Hierarch 03]
-<p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
-
-Note:
-
-
-+++?image=/assets/images/slides/Slide38.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Library Instance Hierarch 04]
-<p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
-
-Note:
-
-
-+++?image=/assets/images/slides/Slide39.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Library Instance Hierarch 05]
-<p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
-
-Note:
-
-
-
-+++?image=/assets/images/slides/Slide40.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Library Instance Hierarch 06]
-<p align="right"><span class="gold" >Library Instance Hierarchy</span></p>
 
 Note:
 - when the error Build : error 4000 : Instance of Library class [Foo…Lib] is not found in [WorkSpace/some module Lib.inf] consumed by module [WorkSpace/My Module.inf]
@@ -630,58 +457,60 @@ As long as there is at least one of each library instance in the workspace and i
 Another NOTE:  Most libraries are dependent on another library the same way that .c and .h files are dependent upon some other .c and .h files.. 
 
 
----?image=/assets/images/slides/Slide42.JPG
-<!-- .slide: data-transition="none" -->
+
+
+---
 @title[Commonly Used Base Library Classes]
-<p align="right"><span class="gold" >Commonly Used Base Library Classes</span></p>
+<p align="right"><span class="gold" ><b>Commonly Used Base Library Classes</b></span></p>
+
+@snap[north-west span-100 fragment]
+<br>
+<br>
+<p style="line-height:90%" align="left"><span style="font-size:0.80em; font-family: Courier New; font-weight: bold;" >BaseLib &nbsp;&nbsp;DebugLib <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UefiLib<br>
+&nbsp;UefiApplicationEntryPoint</span></p>
+@snapend
+
+
+@snap[north-east span-100 fragment]
+<br>
+<br>
+<p style="line-height:90%" align="right"><span style="font-size:0.80em; font-family: Courier New; color: #00b0f0; font-weight: bold;" >
+@color[yellow](UefiDriverEntryPoint)
+<br>UefiBootServicesTableLib&nbsp;&nbsp;
+<br> @color[yellow](DxeCoreEntryPoint)&nbsp;&nbsp; 
+<br>DevicePathLib&nbsp;&nbsp;IoLib
+<br> &nbsp;&nbsp;PrintLib&nbsp;&nbsp;@color[yellow](PeimEntryPoint)
+<br>&nbsp;UefiScsiLib @color[#87E2A9](BaseMemoryLib)</span></p>
+@snapend
+
+@snap[north-west span-100 fragment]
+<br>
+<br>
+<p style="line-height:90%" align="left"><span style="font-size:0.80em; font-family: Courier New; color: #FFC000; font-weight: bold;" ><br><br><br>
+CpuLib&nbsp;&nbsp;UefiUsbLib&nbsp;PciLib<br>
+@color[#87E2A9](MemoryAllocationLib)<br>
+&nbsp;@color[yellow](PeiCoreEntryPoint)<br>
+&nbsp; &nbsp;UefiRuntimeLib &nbsp; &nbsp;&nbsp;@color[#87E2A9](SmmMemLib)</span></p>
+@snapend
+
+
+@snap[north-west span-100 fragment]
+<br>
+<br>
+<p style="line-height:90%" align="left"><span style="font-size:0.80em; font-family: Courier New; color: #FFC000; font-weight: bold;" ><br><br><br><br><br><br><br>
+&nbsp;@color[#00b0f0](DxeSerivesLib)&nbsp;&nbsp;&nbsp;@color[yellow](SynchronizationLib)&nbsp;PciExpressLib<br>
+DxePcdLib&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@color[#00b0f0](UefiRuntimeServicesTableLib) <br>
+&nbsp; &nbsp;PciSegmentLibLib &nbsp;@color[yellow](PeiServicesLib)<br>
+&nbsp; PeiPcdLib&nbsp;&nbsp;DxeHobLib &nbsp;&nbsp;@color[#87E2A9](UefiFileHandleLib)</span></p>
+@snapend
 
 Note:
-
-Eye chart of many - MANY Many Libraries in the EDK II code
-
-+++?image=/assets/images/slides/Slide43.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Commonly Used Base Library Classes 02]
-<p align="right"><span class="gold" >Commonly Used Base Library Classes</span></p>
-
-Note:
-
-Eye chart of many - MANY Many Libraries in the EDK II code
-
-+++?image=/assets/images/slides/Slide44.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Commonly Used Base Library Classes 03]
-<p align="right"><span class="gold" >Commonly Used Base Library Classes</span></p>
-
-Note:
-
-Eye chart of many - MANY Many Libraries in the EDK II code
-
-+++?image=/assets/images/slides/Slide45.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Commonly Used Base Library Classes 04]
-<p align="right"><span class="gold" >Commonly Used Base Library Classes</span></p>
-
-Note:
-
-Eye chart of many - MANY Many Libraries in the EDK II code
-
-+++?image=/assets/images/slides/Slide46.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Commonly Used Base Library Classes 05]
-<p align="right"><span class="gold" >Commonly Used Base Library Classes</span></p>
-
-Note:
-
-Eye chart of many - MANY Many Libraries in the EDK II code
+Key point is that this soon becomes an Eye chart of many - MANY Many Libraries in the EDK II code
 
 ---?image=/assets/images/slides/Slide48.JPG
 @title[MdePkg Library Doc. Location ]
-<p align="right"><span class="gold" >MdePkg Library .CHM file Location </span></p>
+<p align="right"><span class="gold" ><b>MdePkg Library .CHM file Location</b> </span></p>
 <span style="font-size:0.8em" ><a href="https://github.com/tianocore/tianocore.github.io/wiki/UDK2018#documentation">tianocore.org UDK2018 Documentation </a>  on </span>
 <br>
 <br>
@@ -696,7 +525,7 @@ Eye chart of many - MANY Many Libraries in the EDK II code
 ---?image=/assets/images/slides/Slide51.JPG
 <!-- .slide: data-transition="none" -->
 @title[Library Navigation Demonstration]
-<p align="right"><span class="gold" >Library Navigation Demonstration</span></p>
+<p align="right"><span class="gold" ><b>Library Navigation Demonstration</b></span></p>
 
 Note:
 
@@ -712,7 +541,7 @@ chm file unlock – right click –properties –check unblock
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Library Navigation Demonstration video]
-<p align="right"><span class="gold" >Library Navigation Demonstration</span></p>
+<p align="right"><span class="gold" ><b>Library Navigation Demonstration</b></span></p>
 ![video](https://www.youtube.com/embed/s8Zw1w1iQS4)
 Note:
 
@@ -735,7 +564,7 @@ chm file unlock – right click –properties –check unblock
 
 ---?image=/assets/images/slides/Slide54.JPG
 @title[Defining a UEFI Application]
-<p align="right"><span class="gold" >Defining a UEFI Application</span></p>
+<p align="right"><span class="gold" ><b>Defining a UEFI Application</b></span></p>
 <span style="font-size:01.0em" ><font color="#92D050">Characteristics of a UEFI Loadable Image</font></span><br>
 <br>
 @ul[no-bullet]
@@ -766,7 +595,7 @@ The same set of UEFI or firmware interfaces are available to applications that d
 
 ---?image=/assets/images/slides/Slide56_1.JPG
 @title[Defining a UEFI Application -Usages]
-<p align="right"><span class="gold" >Defining a UEFI Application</span></p>
+<p align="right"><span class="gold" ><b>Defining a UEFI Application</b></span></p>
 <span style="font-size:01.0em" ><font color="#92D050">UEFI Loadable Image Usages</font></span><br>
 <br>
 @ul[no-bullet]
@@ -784,7 +613,7 @@ Their usages include factory testing, platform diagnostics (no OS required), and
 ---?image=/assets/images/slides/Slide58.JPG
 <!-- .slide: data-transition="none" -->
 @title[Executing Applications]
-<p align="right"><span class="gold" >Executing Applications</span></p>
+<p align="right"><span class="gold" ><b>Executing Applications</b></span></p>
 
 
 Note:
@@ -806,7 +635,7 @@ and control is returned to the UEFI component that loaded the application.
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Executing Applications 02]
-<p align="right"><span class="gold" >Executing Applications</span></p>
+<p align="right"><span class="gold" ><b>Executing Applications</b></span></p>
 
 
 Note:
@@ -830,7 +659,7 @@ and control is returned to the UEFI component that loaded the application.
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Executing Applications 03]
-<p align="right"><span class="gold" >Executing Applications</span></p>
+<p align="right"><span class="gold" ><b>Executing Applications</b></span></p>
 
 
 Note:
@@ -853,7 +682,7 @@ and control is returned to the UEFI component that loaded the application.
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Executing Applications 04]
-<p align="right"><span class="gold" >Executing Applications</span></p>
+<p align="right"><span class="gold" ><b>Executing Applications</b></span></p>
 
 
 Note:
@@ -876,7 +705,7 @@ and control is returned to the UEFI component that loaded the application.
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Executing Applications 05]
-<p align="right"><span class="gold" >Executing Applications</span></p>
+<p align="right"><span class="gold" ><b>Executing Applications</b></span></p>
 
 
 Note:
@@ -896,7 +725,7 @@ and control is returned to the UEFI component that loaded the application.
 ---?image=/assets/images/slides/Slide65.JPG
 <!-- .slide: data-transition="none" -->
 @title[Executing OS Load App]
-<p align="right"><span class="gold" >Executing Applications</span></p>
+<p align="right"><span class="gold" ><b>Executing Applications</b></span></p>
 
 Note:
 
@@ -907,7 +736,7 @@ Same as the UEFI application except will not return to the UEFI Loader and the O
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Executing OS Load App 02]
-<p align="right"><span class="gold" >Executing Applications</span></p>
+<p align="right"><span class="gold" ><b>Executing Applications</b></span></p>
 
 Note:
 
@@ -918,7 +747,7 @@ Same as the UEFI application except will not return to the UEFI Loader and the O
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Executing OS Load App 03]
-<p align="right"><span class="gold" >Executing Applications</span></p>
+<p align="right"><span class="gold" ><b>Executing Applications</b></span></p>
 
 Note:
 
@@ -929,7 +758,7 @@ Same as the UEFI application except will not return to the UEFI Loader and the O
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Executing OS Load App 04]
-<p align="right"><span class="gold" >Executing Applications</span></p>
+<p align="right"><span class="gold" ><b>Executing Applications</b></span></p>
 
 Note:
 
@@ -940,7 +769,7 @@ Same as the UEFI application except will not return to the UEFI Loader and the O
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Executing OS Load App 05]
-<p align="right"><span class="gold" >Executing Applications</span></p>
+<p align="right"><span class="gold" ><b>Executing Applications</b></span></p>
 
 Note:
 
@@ -951,7 +780,7 @@ Same as the UEFI application except will not return to the UEFI Loader and the O
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Executing OS Load App 06]
-<p align="right"><span class="gold" >Executing Applications</span></p>
+<p align="right"><span class="gold" ><b>Executing Applications</b></span></p>
 
 Note:
 
@@ -959,28 +788,95 @@ Same as the UEFI application except will not return to the UEFI Loader and the O
 
 
 
----?image=/assets/images/slides/Slide73.JPG
+---
 <!-- .slide: data-transition="none" -->
 @title[Driver vs. Application]
-<p align="right"><span class="gold" >Driver Vs. Application</span></p>
+<p align="right"><span class="gold" ><b>Driver Vs. Application</b></span></p>
 
-Note:
+<table id="recTable">
+	<tr>
+		<td align="center" bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.9em" ><b></b></span></p></td>
+		<td align="center" bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.9em" ><b>Driver</b></span></p></td>
+		<td align="center" bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.9em" ><b>Application</b></span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>Loaded by: </b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >UEFI Loader </span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >UEFI Loader </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>Interface available: </b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >All</span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >All </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>Consume protocols? </b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >YES</span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >YES </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>Produce protocols? </b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: #F2f2f2" >YES</span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: #F2f2f2" >NO </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>Typically Driven by? </b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: #F2f2f2" >System</span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: #F2f2f2" >User </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>Typically use? </b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: #F2f2f2" >Support Hardware</span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: #F2f2f2" >Any </span></p></td>
+	</tr>
+</table>
 
 
-+++?image=/assets/images/slides/Slide74.JPG
+
+
++++
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
-@title[Driver vs. Application 02]
-<p align="right"><span class="gold" >Driver Vs. Application</span></p>
+@title[Driver vs. Application]
+<p align="right"><span class="gold" ><b>Driver Vs. Application</b></span></p>
 
-Note:
-
-
-+++?image=/assets/images/slides/Slide75.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Driver vs. Application 03]
-<p align="right"><span class="gold" >Driver Vs. Application</span></p>
+<table id="recTable">
+	<tr>
+		<td align="center" bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.9em" ><b></b></span></p></td>
+		<td align="center" bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.9em" ><b>Driver</b></span></p></td>
+		<td align="center" bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.9em" ><b>Application</b></span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>Loaded by: </b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >UEFI Loader </span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >UEFI Loader </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>Interface available: </b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >All</span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >All </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>Consume protocols? </b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >YES</span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >YES </span></p></td>
+	</tr>
+	<tr class="fragment">
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>Produce protocols? </b></span></p></td>
+		<td  bgcolor="#75deFF" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >YES</span></p></td>
+		<td  bgcolor="#FFF5db" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >NO </span></p></td>
+	</tr>
+	<tr class="fragment">
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>Typically Driven by? </b></span></p></td>
+		<td  bgcolor="#75deFF" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >System</span></p></td>
+		<td  bgcolor="#FFF5db" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >User </span></p></td>
+	</tr>
+	<tr class="fragment">
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>Typically use? </b></span></p></td>
+		<td  bgcolor="#75deFF" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >Support Hardware</span></p></td>
+		<td  bgcolor="#FFF5db" height=".025"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >Any </span></p></td>
+	</tr>
+</table>
 
 Note:
 
@@ -992,54 +888,56 @@ Note:
 <span style="font-size:0.9em" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How to Write a EDK II UEFI Application</span>
 
 
----?image=/assets/images/slides/Slide78.JPG
-<!-- .slide: data-transition="none" -->
+---
 @title[Application Files Placement]
-<p align="right"><span class="gold" >Application Files Placement</span></p>
+<p align="right"><span class="gold" ><b>Application Files Placement</b></span></p>
+
+@css[text-white fragment](@fa[certificate gp-bullet-ltgreen]<span style="font-size:0.8em" >&nbsp;&nbsp;Application source code can go anywhere in the EDK II <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;workspace </span> )
+
+@css[text-white fragment](@fa[certificate gp-bullet-cyan]<span style="font-size:0.8em" >&nbsp;&nbsp;All code and include files go under a single directory containing<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; an INF</span> )
+
+@css[text-white fragment](@fa[certificate gp-bullet-yellow]<span style="font-size:0.8em" >&nbsp;&nbsp;EDK  II Sample Applications can be found here:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:0.7em; background-color: #080808">&nbsp;&nbsp;`  /MdeModulePkg/Application   `&nbsp;&nbsp;</span>)
+
+@css[text-white fragment](@fa[certificate gp-bullet-gold]<span style="font-size:0.8em" >&nbsp;&nbsp;Typically, modules reside within a package:</span> )
+
+@box[bg-grey-05 text-white rounded  my-box-pad fragment](<p style="line-height:60%" align="left"><span style="font-size:0.7em; font-family: Consolas" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  /MyWorkSpace      &nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    /MyPkg          &nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       /Application &nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         /MyApp     &nbsp;&nbsp;<br>&nbsp;</span></p>)
+
+@snap[south-east span-55 fragment]
+![MyAppdir](/assets/images/MyAppDir.png)
+<br>
+@snapend
 
 Note:
+
 Same as slide
 
-
-
-+++?image=/assets/images/slides/Slide79.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Application Files Placement 02]
-<p align="right"><span class="gold" >Application Files Placement</span></p>
-
-Note:
-Same as slide
-
-
-+++?image=/assets/images/slides/Slide80.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Application Files Placement 03]
-<p align="right"><span class="gold" >Application Files Placement</span></p>
-
-Note:
-Same as slide
-
-
-+++?image=/assets/images/slides/Slide81.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Application Files Placement 04]
-<p align="right"><span class="gold" >Application Files Placement</span></p>
-
-Note:
-Same as slide
-
-
----?image=/assets/images/slides/Slide83.JPG
+---?image=/assets/images/slides/Slide35_1.JPG
 @title[Module .INF File]
-<p align="right"><span class="gold" >Module .INF File</span></p><br>
+<p align="right"><span class="gold" ><b>Module .INF File</b></span></p><br>
 <span style="font-size:01.1em" ><font color="yellow">Syntax</font></span>
+<div class="left1">
 <br>
 <br>
 <br>
-<span style="font-size:0.9em" >&nbsp;&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/blob/master/MdeModulePkg/Application/VariableInfo/VariableInfo.inf">INF text file example </a></span>
+<span style="font-size:0.9em" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/blob/master/MdeModulePkg/Application/VariableInfo/VariableInfo.inf">INF text file example </a></span>
+</div>
+<div class="right1">
+   <p style="line-height:60%" ><span style="font-size:0.65em; font-family: Consolas">&nbsp; &nbsp;  INFfile ::= [&lt;Header&gt;]<br>
+   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &lt;Defines&gt;<br>
+   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; [&lt;BuildOptions&gt;]<br>
+   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; [&lt;Sources&gt;]<br>
+   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; [&lt;Binaries&gt;]<br>
+   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; [&lt;Guids&gt;]<br>
+   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; [&lt;Protocols&gt;]<br>
+   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; [&lt;Ppis&gt;]<br>
+   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; [&lt;Packages&gt;]<br>
+   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; [&lt;LibraryClasses&gt;]<br>
+   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; [&lt;Pcds&gt;]<br>
+   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; [&lt;UserExtensions&gt;]<br>
+   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; [&lt;Depex&gt;]<br>
+   </span></p>
+</div>
+
 
 Note:
 
@@ -1050,19 +948,57 @@ See EDK II INF  File Specification for more details and examples
 1 Depex only used with specific Module types
 
 
----?image=/assets/images/slides/Slide85.JPG
+
+
+
+
+---
 @title[Application INF Files -DEFINES]
-<p align="right"><span class="gold" >Application INF Files [DEFINES]</span></p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<p align="right"><span class="gold" ><b>Application INF Files `[DEFINES]`<b></span></p>
+
+
+
+<table id="recTable">
+	<tr>
+		<td align="center" bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.9em" ><b>Field</b></span></p></td>
+		<td align="center" bgcolor="#0070C0" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.9em" ><b>Description</b></span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`INF_VERSION`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >1.25* - Version of the INF spec. </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`BASE_NAME`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >What’s the name of the application </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`FILE_GUID`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >Create a GUID for your module </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`MODULE_UNI_FILE`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >Meta-data - localization for Description, Abstract</span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`VERSION_STRING`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" > Version number</span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`ENTRY_POINT`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" > Name of the entry function to call </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`MODULE_TYPE`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" > UEFI_APPLICATION</span></p></td>
+	</tr>
+</table>
+
+
+
+@snap[south-west span-100]
 <span style="font-size:0.5em" ><font color="yellow">*EDK II Specifications: </font> <a href="https://github.com/tianocore/tianocore.github.io/wiki/EDK-II-Specifications">https://github.com/tianocore/tianocore.github.io/wiki/EDK-II-Specifications </a></span>
+@snapend
+
 
 Note:
 
@@ -1072,21 +1008,22 @@ Note:
 #### defines
 - INF_VERSION 1.25* - Version of the INF spec.
 - BASE_NAME What’s the name of the application
-- FILE_GUID Create a GUID for your module
+- FILE_GUID Create a GUID for your module guidgen.com
 - MODULE_UNI_FILE Meta-data - localization for Description & Abstract
 - VERSION_STRING Version number
-- ENTRY_POINT Name of the function to call
+- ENTRY_POINT Name of the function to call ie MyMainEntryPoint();
 - MODULE_TYPE UEFI_APPLICATION
 
 ---
 <!-- .slide: data-background-transition="none" -->
 @title[Sample INF file]
-<p align="right"><span class="gold" >Sample INF file</span></p>
+<p align="right"><span class="gold" ><b>Sample INF file</b></span></p>
 
 ```XML
 [Defines]
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = MyApplication
+  MODULE_UNI_FILE                = MyFile.uni
   FILE_GUID                      = 215cdcfb-1cfc-47e0-9c02-47048c21d20d
   MODULE_TYPE                    = UEFI_APPLICATION
   VERSION_STRING                 = 1.0
@@ -1115,12 +1052,13 @@ Note:
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Sample INF file]
-<p align="right"><span class="gold" >Sample INF file</span></p>
+<p align="right"><span class="gold" ><b>Sample INF file</b></span></p>
 
 ```XML
 [Defines]
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = MyApplication
+  MODULE_UNI_FILE                = MyFile.uni
   FILE_GUID                      = 215cdcfb-1cfc-47e0-9c02-47048c21d20d
   MODULE_TYPE                    = UEFI_APPLICATION
   VERSION_STRING                 = 1.0
@@ -1143,11 +1081,24 @@ Note:
 
 ```
 
-@[1-7](Defines for this .INF file; BASE_NAME results in this name.efi file)
-@[9-10]( Source: .c, .h, .uni, .vfr, any files needed for the compiler/linker/lib etc)
-@[12-16](Package dependencies and Libraries this module will include in its final binary image)
+@[1-8](Defines for this .INF file; BASE_NAME results in this name.efi file)
+@[4-4](OPTIONAL: UNI Text file for localization of descriptions and abstract  MyFile.uni)
+@[5-5](Always get a new quid .i.e http://guidgen.com)
+@[7-7](User defined string syntax is `number` dot `number`)
+@[8-8](The main entry point of the module in one of the .c files in list of sources)
+@[10-11]( Source: .c, .h, .uni, .vfr, any files needed for the compiler/linker/lib etc)
+@[13-17](Package dependencies and Libraries this module will include in its final binary image)
 
 Note:
+
+-  INF_VERSION            see spec
+-  BASE_NAME            BASE_NAME results in this name.efi file
+-  MODULE_UNI_FILE     OPTIONAL: UNI Text file for localization of descriptions and abstract MyFile.uni
+-  FILE_GUID           Always get a new quid
+-  MODULE_TYPE         UEFI_APPLICATION or driver or PEIM or DXE
+-  VERSION_STRING       User defined string number dot number
+-  ENTRY_POINT         The main entry point of the module in one of the .c files in list of sources
+
 
 ---?image=/assets/images/slides/Slide88.JPG
 @title[Building an Application]
@@ -1181,7 +1132,7 @@ Note:
 ---
 <!-- .slide: data-transition="none" -->
 @title[Sample Application "C" File]
-<p align="right"><span class="gold" >Sample Application "C" File</span></p>
+<p align="right"><span class="gold" ><b>Sample Application "C" File</b></span></p>
 <br>
 <br>
 ```C
@@ -1209,7 +1160,7 @@ This sample application does not do anything, it is just a reference.
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Sample Application "C" File]
-<p align="right"><span class="gold" >Sample Application "C" File</span></p>
+<p align="right"><span class="gold" ><b>Sample Application "C" File</b></span></p>
 <br>
 <br>
 ```C
@@ -1240,7 +1191,7 @@ This sample application does not do anything, it is just a reference.
 
 ---?image=/assets/images/slides/Slide91.JPG
 @title[UEFI Application Vs. EADK Application]
-<p align="right"><span class="gold" >UEFI Application Vs. EADK Application</span></p>
+<p align="right"><span class="gold" ><b>UEFI Application Vs. EADK Application</b></span></p>
 <br>
 <br>
 <div class="left1">
@@ -1264,12 +1215,13 @@ Note:
 ---
 <!-- .slide: data-transition="none" -->
 @title[Sample INF file using EDK II EADK ]
-<p align="right"><span class="gold" >Sample INF file using EDK II EADK</span></p>
+<p align="right"><span class="gold" ><b>Sample INF file using EDK II EADK</b></span></p>
 
 ```XML
 [Defines]
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = MyApplication
+  MODULE_UNI_FILE                = MyFile.uni
   FILE_GUID                      = 215cdcfb-1cfc-47e0-9c09-47048c21d20d
   MODULE_TYPE                    = UEFI_APPLICATION
   VERSION_STRING                 = 1.0
@@ -1312,12 +1264,13 @@ Note:
 <!-- .slide: data-background-transition="none" -->
 <!-- .slide: data-transition="none" -->
 @title[Sample INF file using EDK II EADK ]
-<p align="right"><span class="gold" >Sample INF file using EDK II EADK</span></p>
+<p align="right"><span class="gold" ><b>Sample INF file using EDK II EADK</b></span></p>
 
 ```XML
 [Defines]
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = MyApplication
+  MODULE_UNI_FILE                = MyFile.uni
   FILE_GUID                      = 215cdcfb-1cfc-47e0-9c09-47048c21d20d
   MODULE_TYPE                    = UEFI_APPLICATION
   VERSION_STRING                 = 1.0
@@ -1341,9 +1294,9 @@ Note:
 
 [Protocols]
 ```
-@[7]( Entry point is a library in the shell to get parameters from the command line)
-@[12-14]( Packages included for standard "C" lib and Shell Lib)
-@[17-19]( Library classes for ANSI "C" and Standard IO "stdio.h")
+@[8]( Entry point is a library in the shell to get parameters from the command line)
+@[13-15]( Packages included for standard "C" lib and Shell Lib)
+@[18-21]( Library classes for ANSI "C" and Standard IO "stdio.h")
 
 Note:
 
@@ -1360,7 +1313,7 @@ Note:
 
 ---
 @title[Sample "C" file using EDK II EADK ]
-<p align="right"><span class="gold" >Sample "C" file using EDK II EADK</span></p>
+<p align="right"><span class="gold" ><b>Sample "C" file using EDK II EADK</b></span></p>
 <br>
 <span style="font-size:0.9em" >This sample looks a lot like actual “C” source.</span>
 
@@ -1384,47 +1337,80 @@ Note:
 simple "C" looks like a normal "C" file  
   
 
----?image=/assets/images/slides/Slide96.JPG
-<!-- .slide: data-transition="none" -->
+
+
+---
 @title[Driver File Placement]
-<p align="right"><span class="gold" >Driver File Placement</span></p>
+<p align="right"><span class="gold" ><b>Driver File Placement</b></span></p>
+
+@css[text-white fragment](@fa[certificate gp-bullet-ltgreen]<span style="font-size:0.8em" >&nbsp;&nbsp;Driver source code can go anywhere in the EDK II <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;workspace </span> )
+
+@css[text-white fragment](@fa[certificate gp-bullet-cyan]<span style="font-size:0.8em" >&nbsp;&nbsp;All code and include files go under a single directory containing<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; an INF</span> )
+
+@css[text-white fragment](@fa[certificate gp-bullet-yellow]<span style="font-size:0.8em" >&nbsp;&nbsp;Good example of UEFI Drivers can be found here:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:0.7em; background-color: #080808">&nbsp;&nbsp;`  /MdeModulePkg/Bus/ScsiDiskDxe   `&nbsp;&nbsp;</span>)
+
+@css[text-white fragment](@fa[certificate gp-bullet-gold]<span style="font-size:0.8em" >&nbsp;&nbsp;Typically, Driver modules reside within a package:</span> )
+
+@box[bg-grey-05 text-white rounded  my-box-pad fragment](<p style="line-height:60%" align="left"><span style="font-size:0.7em; font-family: Consolas" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  /MyWorkSpace      &nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    /MyPkg          &nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /Include &nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /MyDriver     &nbsp;&nbsp;<br>&nbsp;</span></p>)
+
+
+@snap[south-east span-55 fragment]
+<br>
+![MyDriverdir](/assets/images/MyDriverDir.png)
+<br>
 
 Note:
 Same as slide
 
 
-+++?image=/assets/images/slides/Slide97.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Driver File Placement 02]
-<p align="right"><span class="gold" >Driver File Placement</span></p>
-
-Note:
-Same as slide
+---
+<p align="right"><span class="gold" ><b>Driver INF Files: `[DEFINES]`</b></span></p>
 
 
-+++?image=/assets/images/slides/Slide98.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Driver File Placement 03]
-<p align="right"><span class="gold" >Driver File Placement</span></p>
-
-Note:
-Same as slide
 
 
-+++?image=/assets/images/slides/Slide99.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Driver File Placement 04]
-<p align="right"><span class="gold" >Driver File Placement</span></p>
 
-Note:
-Same as slide
+<table id="recTable">
+	<tr>
+		<td align="center" bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.9em" ><b>Field</b></span></p></td>
+		<td align="center" bgcolor="#0070C0" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.9em" ><b>Description</b></span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`INF_VERSION`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >1.25* - Version of the INF spec. </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`BASE_NAME`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >What’s the name of the driver </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`FILE_GUID`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >Create a GUID for your module </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`MODULE_UNI_FILE`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" >Meta-data - localization for Description, Abstract</span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`VERSION_STRING`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" > Version number</span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`ENTRY_POINT`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" > Name of the entry function to call </span></p></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#0070C0" height=".025"><p style="line-height:010%"><span style="font-size:0.65em" ><b>`MODULE_TYPE`</b></span></p></td>
+		<td  bgcolor="#F2f2f2" height=".025" width="70%"><p style="line-height:010%"><span style="font-size:0.7em; color: black" > `UEFI_DRIVER, DXE_DRIVER, PEIM,` etc...</span></p></td>
+	</tr>
+</table>
 
----?image=/assets/images/slides/Slide101.JPG
-@title[Driver INF Files: DEFINES]
-<p align="right"><span class="gold" >Driver INF Files: [DEFINES]</span></p>
+
+
+@snap[south-west span-100]
+<span style="font-size:0.5em" ><font color="yellow">*EDK II Specifications: </font> <a href="https://github.com/tianocore/tianocore.github.io/wiki/EDK-II-Specifications">https://github.com/tianocore/tianocore.github.io/wiki/EDK-II-Specifications </a></span>
+@snapend
+
 
 
 Note:
@@ -1441,47 +1427,44 @@ Note:
 - ENTRY_POINT Name of the function to call
 - MODULE_TYPE UEFI_DRIVER, DXE_DRIVER, PEIM, or others
 
----?image=/assets/images/slides/Slide103.JPG
-<!-- .slide: data-transition="none" -->
+
+
+
+---?image=/assets/images/slides/Slide47_1.JPG
 @title[Changes for a UEFI Driver Module]
-<p align="right"><span class="gold" >Changes for a UEFI Driver Module</span></p>
+<p align="right"><span class="gold" ><b>Changes for a UEFI Driver Module</b></span></p>
+
+@css[text-white fragment](<span style="font-size:0.9em" >Applications can be converted to a driver</span> )
+<br>
+<br>
+@css[text-white fragment](<span style="font-size:0.9em" >@color[yellow](But) . . . It remains in memory after it runs</span> )
+@snap[north-east span-15 fragment]
+<br>
+<br>
+![uefi_logo](/assets/images/uefi_logo.png)
+@snapend
+<br>
+@css[text-white fragment](<p style="line-height:80%" ><span style="font-size:0.9em" >UEFI Driver Module requirements:<br>&nbsp;&nbsp;&bull;&nbsp;&nbsp;Driver Binding Protocol<br>&nbsp;&nbsp;&bull;&nbsp;&nbsp;Component Name2 Protocol &lpar;recommended&rpar;</span> </p>)
+
+<br>
+@css[text-white fragment](<span style="font-size:0.9em" >DXE/PEIM/other Driver requirements</span> )
+
 
 Note:
-same as slide
 
-+++?image=/assets/images/slides/Slide104.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Changes for a UEFI Driver Module 02]
-<p align="right"><span class="gold" >Changes for a UEFI Driver Module</span></p>
+An Application can be converted to  UEFI Drier by simply changing the MODULE_TYPE to UEFI_DRIVER
 
-Note:
-same as slide
-
-
-+++?image=/assets/images/slides/Slide105.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Changes for a UEFI Driver Module 03]
-<p align="right"><span class="gold" >Changes for a UEFI Driver Module</span></p>
-
-Note:
-same as slide
-+++?image=/assets/images/slides/Slide106.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Changes for a UEFI Driver Module 04]
-<p align="right"><span class="gold" >Changes for a UEFI Driver Module</span></p>
-
-Note:
-same as slide
+(But) . . . It remains in memory after it runs
  
+It is better to also add the UEFI Driver Binding Protocol and / or Component Name Protocol (others maybe needed for whatever the job is for the driver that is being created)
 
+Other requirements maybe on DXE and/or PEIM and/or other types of UEFI Drivers 
+i.e. a serial UEFI driver may require the Serial IO  protocol
 
 ---
 <!-- .slide: data-transition="none" -->
 @title[Sample INF Driver file]
-<p align="right"><span class="gold" >Sample Driver INF file</span></p>
+<p align="right"><span class="gold" ><b>Sample Driver INF file</b></span></p>
 
 ```XML
 [Defines]
@@ -1516,13 +1499,49 @@ same as slide
 Note:
 
 
-  
----?image=/assets/images/slides/Slide109.JPG
+---?image=/assets/images/slides/Slide49_1.JPG
 @title[INF Usage fields – DIST files ]
-<p align="right"><span class="gold" >INF Usage fields – DIST files </span></p>
+<p align="right"><span class="gold" ><b>INF Usage fields – DIST files</b> </span></p>
 
+<span style="font-size:01.25em" >@color[yellow](<i><b>Optional</b></i>) </span>&nbsp;&nbsp;&nbsp;<b>UEFI Spec - Package Distribution<b>
+<div class="left1">
+<p style="line-height:80%"><span style="font-size:0.8em" >Usage field used by the Build tools for creating the .Dist file for binary modules</span></p>
+     <ul style="list-style-type:none; line-height:0.7;">
+        <li><span style="font-size:0.7em" >[GUID]</span></li>
+        <li><span style="font-size:0.7em" >[PCD]</span></li>
+        <li><span style="font-size:0.7em" >[PROTOCOL]</span></li>
+		<li><span style="font-size:0.7em" >[PPIS]</span></li>
+     </ul>
+<p style="line-height:80%"><span style="font-size:0.6em" >1 Usage Block&nbsp;&nbsp;  - "&num;&num;" After the entry<br><i>n</i>&nbsp;Usage Blocks - "&num;&num;" Precede the entry	</span></p>
+</div>
+<div class="right1">
+<br>
+<br>
+<p style="line-height:80%"><span style="font-size:0.7em" > @color[yellow](<b>&nbsp;&nbsp;Usage Key Word</b>)</span></p>
+    <ul style="list-style-type:none; line-height:0.7;">
+        <li><span style="font-size:0.45em" >&num;&num; UNDEFINED</span></li>
+        <li><span style="font-size:0.45em" >&num;&num; CONSUMES</span></li>
+        <li><span style="font-size:0.45em" >&num;&num; SOMETIMES_CONSUMES</span></li>
+		<li><span style="font-size:0.45em" >&num;&num; PRODUCES</span></li>
+		<li><span style="font-size:0.45em" >&num;&num; SOMETIMES_PRODUCES</span></li>
+		<li><span style="font-size:0.45em" >&num;&num; TO_START</span></li>
+		<li><span style="font-size:0.45em" >&num;&num; BY_START</span></li>
+ 		<li><span style="font-size:0.45em" >&num;&num; NOTIFY</span></li>
+    </ul>
+  
+</div>
+@snap[south-east span-40]
+
+<p align="right" style="line-height:20%"><span style="font-size:02.25em" >@color[yellow](&rbrace;) </span><span style="font-size:0.5em" >UEFI Protocol&nbsp;&nbsp;<br><br><br><br><br><br><br>&nbsp;</span></p>
+<br>
+@snapend
 
 Note:
+
+
+Usage field used by the Build tools for creating the .Dist file for binary modules 
+can be used in applications that parse the .DIST files.
+- Example:  PCDs of type "Patch-able"
 
 - CONSUMES
   - This module does not install the protocol, but needs to locate a protocol. Not valid if the Notify attribute is true.
@@ -1544,7 +1563,7 @@ Note:
 
 ---
 @title[INF File Usage Block examples]
-<p align="right"><span class="gold" >INF File Usage Block examples</span></p>
+<p align="right"><span class="gold" ><b>INF File Usage Block examples</b></span></p>
 <br>
 
 <pre>
@@ -1596,7 +1615,7 @@ Note:
 
 +++
 @title[INF File Usage Block examples]
-<p align="right"><span class="gold" >INF File Usage Block examples</span></p>
+<p align="right"><span class="gold" ><b>INF File Usage Block examples</b></span></p>
 <br>
 
 <pre>
@@ -1647,7 +1666,7 @@ Note:
 
 ---?image=/assets/images/slides/Slide112_1.JPG
 @title[UEFI Driver Example - Disk I/O]
-<p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
+<p align="right"><span class="gold" ><b>UEFI Driver Example - Disk I/O</b></span></p>
 <br>
 @fa[github gp-bullet-black]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a></span><br>
 
@@ -1658,7 +1677,7 @@ Note:
 
 ---
 @title[UEFI Driver Example - Disk I/O]
-<p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
+<p align="right"><span class="gold" ><b>UEFI Driver Example - Disk I/O</b></span></p>
 @fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a>- entry point</span><br>
 <div class="left2">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
@@ -1705,7 +1724,7 @@ Note:
 
 ---
 @title[UEFI Driver Example - Disk I/O 02]
-<p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
+<p align="right"><span class="gold" ><b>UEFI Driver Example - Disk I/O</b></span></p>
 @fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a>- Supported </span><br>
 
 <div class="left2">
@@ -1751,7 +1770,7 @@ Using the global gEfiBlockIoProtocolGuid protocol to determine if this device co
 
 ---
 @title[UEFI Driver Example - Disk I/O 03]
-<p align="right"><span class="gold" >UEFI Driver Example - Disk I/O</span></p>
+<p align="right"><span class="gold" ><b>UEFI Driver Example - Disk I/O</b></span></p>
 @fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/MdeModulePkg/Universal/Disk/DiskIoDxe ">https://github.com/tianocore/edk2 /Disk/DiskIoDxe  </a>- Start</span><br>
 
 <div class="left2">
@@ -1799,7 +1818,7 @@ Note:
 
 ---?image=/assets/images/slides/Slide117_1.JPG
 @title[DXE Driver Example - PlatformInfoDxe]
-<p align="right"><span class="gold" >DXE Driver Example - PlatformInfoDxe</span></p>
+<p align="right"><span class="gold" ><b>DXE Driver Example - PlatformInfoDxe</b></span></p>
 <br>
 @fa[github gp-bullet-black]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2-platforms/tree/devel-MinnowBoardMax-UDK2017/Vlv2TbltDevicePkg/PlatformInfoDxe">https://github.com/tianocore/edk2-platforms/ PlatformInfoDxe</a></span><br>
 
@@ -1812,7 +1831,7 @@ Note:
 
 ---
 @title[DXE Example .INF File - PlatformInfoDxe]
-<p align="right"><span class="gold" >DXE Driver Example - PlatformInfoDxe</span></p>
+<p align="right"><span class="gold" ><b>DXE Driver Example - PlatformInfoDxe</b></span></p>
 @fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2-platforms/tree/devel-MinnowBoardMax-UDK2017/Vlv2TbltDevicePkg/PlatformInfoDxe">https://github.com/tianocore/edk2-platforms/ PlatformInfoDxe</a></span><br>
 <span style="font-size:0.6em"  >Notice the MODULE TYPE, C function Entry point and the [Depex] differences in the INF file </span>
 <div class="left1">
@@ -1863,7 +1882,7 @@ Depex section is part of the Dxe driver INF file
 
 ---?image=/assets/images/slides/Slide121_1.JPG
 @title[PEI Driver (PEIM) Example - CpuIoPei]
-<p align="right"><span class="gold" >PEI Driver (PEIM) Example - CpuIoPei</span></p>
+<p align="right"><span class="gold" ><b>PEI Driver (PEIM) Example - CpuIoPei</b></span></p>
 <br>
 @fa[github gp-bullet-black]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/UefiCpuPkg/CpuIoPei">https://github.com/tianocore/edk2/ UefiCpuPkg/CpuIoPei  </a> </span>
 
@@ -1875,7 +1894,7 @@ Note:
 
 ---
 @title[PEI Driver (PEIM) Example - CpuIoPei]
-<p align="right"><span class="gold" >PEI Driver (PEIM) Example - CpuIoPei</span></p>
+<p align="right"><span class="gold" ><b>PEI Driver (PEIM) Example - CpuIoPei</b></span></p>
 @fa[github gp-bullet-gold]<span style="font-size:0.7em">&nbsp;&nbsp;<a href="https://github.com/tianocore/edk2/tree/master/UefiCpuPkg/CpuIoPei">https://github.com/tianocore/edk2/ UefiCpuPkg/CpuIoPei  </a> </span>
 <div class="left1">
 <span style="font-size:0.8em" ><font color="cyan">"C" file</font></span>
